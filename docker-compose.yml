@@ -18,6 +18,8 @@ services:
             MYSQL_DATABASE: take_a_feariend
             MYSQL_USER: test
             MYSQL_PASSWORD: test
+        volumes:
+            - ./db:/docker-entrypoint-initdb.d # Chemin vers le dossier db contenant le fichier SQL
         ports:
             - "3308:3306"
     phpma:
