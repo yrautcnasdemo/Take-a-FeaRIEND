@@ -7,7 +7,7 @@
             <div class="container-li">
                 <li><a href="../index.php">Accueil</a></li>
                 <li><a href="#">Catégories</a></li>
-                <li><a href="../backoffice.php">A propos</a></li>
+                <li><a href="#">A propos</a></li>
             </div>
             <div class="container-button-li">
 
