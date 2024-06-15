@@ -1,0 +1,194 @@
+/* TABLET */
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  /* NAVBAR */
+
+  #burger {
+    display: none;
+  }
+
+  nav {
+    display: block;
+  }
+
+  nav ul {
+    position: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.25s;
+    width: 100%;
+    background: none;
+    gap: 15px;
+    margin-left: 10px;
+  }
+
+  nav ul:hover {
+    background: none;
+  }
+
+  nav li {
+    background: none;
+    list-style-type: none;
+  }
+
+  nav ul li:hover {
+    background: none;
+  }
+
+  nav.active ul nav li {
+    list-style: none;
+    padding: 5px 0;
+    display: none;
+  }
+
+  nav.active .container-button-li {
+    padding: 0;
+  }
+
+  .container-li {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    border-radius: 5px;
+    height: 0.05em;
+    bottom: 0;
+    left: 0;
+    background: currentcolor;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* CONTAINER CARDS */
+
+  /* FOOTER LEFT*/
+
+  .left-footer {
+    /* border: 3px solid pink; */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    gap: 25px;
+    width: 50%;
+  }
+
+  /* FOOTER RIGHT */
+}
+
+/* DESKTOP */
+
+@media all and (min-width: 1024px) {
+  /*NAVBAR */
+
+  .logo img {
+    width: 50px;
+    margin-left: 30px;
+  }
+
+  #burger {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .container-li {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .container-button-li {
+    margin-left: auto;
+  }
+
+  nav ul {
+    position: unset;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: 0.25s;
+    width: 100%;
+    background: none;
+    gap: 15px;
+  }
+
+  nav ul:hover {
+    background: none;
+  }
+
+  nav li {
+    background: none;
+    list-style-type: none;
+  }
+
+  nav ul li:hover {
+    background: none;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    border-radius: 5px;
+    height: 0.05em;
+    bottom: 0;
+    left: 0;
+    background: currentcolor;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  dl,
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+
+  /* FOOTER LEFT */
+
+  .container-footer {
+    justify-content: center;
+  }
+
+  .left-footer {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+  }
+}
