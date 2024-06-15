@@ -34,7 +34,7 @@ CREATE TABLE `animaux` (
   `category` varchar(255) NOT NULL,
   `price` int NOT NULL,
   `discount` tinyint(1) DEFAULT '0',
-  `image` varchar(255) DEFAULT NULL
+  `images` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
