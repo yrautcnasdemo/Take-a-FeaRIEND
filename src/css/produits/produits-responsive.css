@@ -180,6 +180,35 @@
     margin-bottom: 0;
   }
 
+  /* CONTAINER CARDS SANS CAROUSSEL */
+
+  .cards-section {
+    display: none;
+  }
+
+  .desktop-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .desktop-flex h2 {
+    margin-top: 40px;
+  }
+
+  .desktop-flex .container-flex {
+    display: flex;
+    gap: 40px;
+  }
+
+  .container2-flex {
+    display: flex;
+    gap: 40px;
+  }
+
   /* FOOTER LEFT */
 
   .container-footer {

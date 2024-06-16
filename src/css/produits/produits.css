@@ -151,7 +151,7 @@ nav.active .container-button-li li:hover {
   background: url("../../img/domestiques/chaton.png") fixed;
   background-size: cover;
   background-position: 75% 75%;
-  height: 100vh;
+  height: 80vh;
 }
 
 /* CONTAINER CARDS */
@@ -176,7 +176,7 @@ nav.active .container-button-li li:hover {
 }
 
 .container-cards figure img {
-  width: 350px;
+  width: 100%;
   height: 500px;
   object-fit: cover;
   border-radius: 4px;
@@ -189,7 +189,7 @@ nav.active .container-button-li li:hover {
   box-shadow: 5px 5px 20px;
   overflow: hidden;
   cursor: pointer;
-  width: 350px;
+  width: 100%;
 }
 
 .container-cards figure h3 {
@@ -204,7 +204,7 @@ nav.active .container-button-li li:hover {
 .intro-card {
   position: absolute;
   height: 80px;
-  width: 350px;
+  width: 100%;
   bottom: 0;
   overflow: hidden;
   padding: 10px;
@@ -259,6 +259,12 @@ nav.active .container-button-li li:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* CONTAINER NONE EN MOBILE */
+
+.desktop-flex {
+  display: none;
 }
 
 /* FOOTER  */
