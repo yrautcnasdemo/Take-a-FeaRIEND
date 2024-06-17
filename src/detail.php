@@ -2,11 +2,10 @@
     session_start();
     require_once("connect.php");
     require_once("./template/header.php");
-
-    define('_ASSET_IMG_PATH_','img/');
+    require_once("./template/tools.php");
 
     if(!isset($_GET['id'])){
-        die('Id pas trouvé');
+        die('Id introuvable');
     }
 
     $id = $_GET['id'];
@@ -19,12 +18,14 @@
     $animal = $requete->fetch(PDO::FETCH_ASSOC);
 
     if (!$animal) {
-        die("Animal pas trouvé");
+        die("Animal introuvable");
     }
 
-    $imagePath = _ASSET_IMG_PATH_ . 'nointernet.jpg'; // Valeur par défaut
-    if (!empty($animal['images'])) {
-        $imagePath = _ASSET_IMG_PATH_ . $animal['images'];
+    
+    if ($animal['images'] === '') {
+        $imagePath = _ASSET_IMG_PATH_.'nointernet.jpg'; // Valeur par défaut
+    } else {
+        $imagePath = $animal['images'];
     }
 ?>
 

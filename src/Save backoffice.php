@@ -2,48 +2,69 @@
 session_start();
 require_once("connect.php");
 
-// Gestion de la suppression multiple
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_ids']) && is_array($_POST['delete_ids'])) {
+// Faire le traitement pour faire une suppression multiple
+// On vérifie si le formulaire a été soumis en POST et si le tableau "$_POST['delete_ids']"  est défini et est bien un tableau
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_ids']) && is_array($_POST['delete_ids'])) // On vérifie si $_POST["delete_ids"] est défini (si le champs formulaire "delete_ids) a été envoyé et on vérifie que $_POST["delete_ids"] est un tableau ce qui est important car on attends à recevoir plusieurs valeurs (les IDs des éléments à supprimer)
+{
+    // On transforme le tableau d'id en une chaine de caractère et chaque ID est séparé par une virgule pour une utilisation dans une requête SQL "delete"
     $ids = implode(',', array_map('intval', $_POST['delete_ids']));
+
     $sql = "DELETE FROM animaux WHERE id IN ($ids)";
+
     $query = $db->prepare($sql);
     $query->execute();
+
     header("Location: backoffice.php");
     exit();
 }
 
-$imagePath = ""; // Initialisation de la variable
+// On vérifie si un fichier a été envoyé
+if (isset($_FILES["images"]) && $_FILES["images"]["error"] === 0) {
+    // On a reçu l'image
+    // On procède aux vérifications
+    // On vérifie toujours l'extension ET le type Mime
 
-// Vérification et traitement du fichier uploadé
-if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
     $allowed = [
         "jpg" => "image/jpeg",
         "jpeg" => "image/jpeg",
         "png" => "image/png"
     ];
 
-    $filename = $_FILES["image"]["name"];
-    $filetype = $_FILES["image"]["type"];
-    $filesize = $_FILES["image"]["size"];
+    // On va récupérer le nom du fichier
+    $filename = $_FILES["images"]["name"];
+    $filetype = $_FILES["images"]["type"];
+    $filesize = $_FILES["images"]["size"];
+
+    // On vérifie si le fichier est bien nommé avec une extension et qui est dans le bon type
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
+    // On vérifie l'absence de l'extension dans les clés de $allowed ou l'absence de type Mime dans les valeurs
     if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
+        // Soit l'extension soit le type est incorrect (ou les deux)
         die("Erreur : le format du fichier est incorrect");
     }
 
+    // Le type est correct
+    // On limite à 1Mo
     if ($filesize > 1024 * 1024) {
         die("Fichier trop volumineux");
     }
 
-    $newname = md5(uniqid()) . ".$extension";
-    $newfilename = __DIR__ . "/img/upload_animaux/$newname";
+    // On génère un nom unique
+    $newname = md5(uniqid());
+    // On génère le chemin complet
+    $newfilename = __DIR__ . "/img/upload_animaux/$newname.$extension";
 
-    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $newfilename)) {
+    // On déplace le fichier de tmp à img en le renommant
+    if (!move_uploaded_file($_FILES["images"]["tmp_name"], $newfilename)) {
         die("L'upload a échoué");
     }
 
+    // On interdit l'execution du fichier
     chmod($newfilename, 0644);
-    $imagePath = "img/upload_animaux/$newname"; // Chemin relatif à stocker dans la base de données
+
+    // Pour supprimer l'image en refreshant la page
+    // unlink(__DIR__."NomDuFichier");
 }
 
 $sql = "SELECT * FROM animaux";
@@ -58,8 +79,16 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
     $price = strip_tags($_POST["price"]);
     $discount = isset($_POST["discount"]) ? 1 : 0;
 
-    // Utilisation de $imagePath défini plus haut
-    $images = $imagePath;
+    $images = "";
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+        $imageTmpName = $_FILES["image"]["tmp_name"];
+        $imageName = basename($_FILES["image"]["name"]);
+        $imagePath = "upload_animaux/" . $imageName;
+
+        if (move_uploaded_file($imageTmpName, $imagePath)) {
+            $images = $imagePath;
+        }
+    }
 
     $sql = "INSERT INTO animaux (name, content, category, price, discount, images) VALUES (:name, :content, :category, :price, :discount, :images)";
     $query = $db->prepare($sql);
@@ -83,11 +112,9 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,8 +125,12 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
     <link rel="stylesheet" href="./css/produits/produits-responsive.css">
     <title>Take a FeaRIEND</title>
 </head>
+
 <body>
+
     <?php require_once("./template/header.php"); ?>
+
+    <!-- START PANEL AJOUT PRODUITS -->
     <div class="bannerOffice"></div>
     <section class="add-panel">
         <div class="card-add">
@@ -129,24 +160,29 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                     <div class="promotion-checkbox">
                         <label for="discount">Promotion</label>
                         <input type="checkbox" name="discount" id="discount" class="form-check-input">
+
                     </div>
                 </div>
                 <div class="right-column">
                     <div class="upload-box">
                         <label for="image" class="upload-btn">Upload</label>
-                        <input type="file" name="image" id="image" accept="image/*" style="display: none;">
+                        <input type="file" name="images" id="image" accept="image/*" style="display: none;">
                     </div>
                 </div>
-                <button type="submit" value="Enregistrer" class="upload-btn" name="uploadAnimal">
+                <input type="submit" class="upload-btn" name="btn-add">
                     <img src="/img/icons/green-add-button-12023.png" alt="">
-                </button>
+                </input>
             </form>
+
         </div>
         <div class="Admin-title">
             <h2>ADMINISTRATEUR:</h2>
             <span>Nickname</span>
         </div>
     </section>
+    <!-- END PANEL AJOUT PRODUITS -->
+
+    <!-- START TABLEAU ADMINISTRATEUR -->
     <section>
         <div class="container-fluid mt-5 dashboard">
             <div class="row">
@@ -165,7 +201,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                                     <th scope="col">Catégorie</th>
                                     <th scope="col">Prix</th>
                                     <th scope="col">Promotion</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">
                                 </tr>
                             </thead>
                             <?php foreach ($result as $animaux) : ?>
@@ -192,9 +228,13 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
             </div>
         </div>
     </section>
+    <!-- END TABLEAU ADMINISTRATEUR -->
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./js/script.js"></script>
 </body>
+
+<script src="./js/script.js"></script>
+
 </html>
