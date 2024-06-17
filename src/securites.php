@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/produits/produits.css">
     <link rel="stylesheet" href="./css/produits/produits-responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Animaux domestiques</title>
+    <title>Animaux de sécurité</title>
 </head>
 
 <body>
@@ -37,17 +37,17 @@
         </header>
         <section class="image-illustration"></section>
         <section class="cards-section">
-            <h2>Animaux doméstiques</h2>
+            <h2>Animaux de sécurité</h2>
             <div class="container-domestique">
                 <div class="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/domestiques/0f5fabd8.png" alt="Chat-Dragon">
+                                    <img src="./img/securites/105338.png" alt="Babouin-Taureau">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Chagon</h3>
+                                                <h3>Baboureau</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -60,10 +60,10 @@
                         <div class="carousel-item">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/domestiques/105135.png" alt="Moustique-Migale">
+                                    <img src="./img/securites/105547.png" alt="Lion-Gorille">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Moustigale</h3>
+                                                <h3>Liorille</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -76,10 +76,10 @@
                         <div class="carousel-item">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/domestiques/105309.png" alt="Poisson-Méduse">
+                                    <img src="./img/securites/105659.png" alt="Jaguar-Dragon Komodo">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Poiduse</h3>
+                                                <h3>Jaguamodo</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -92,42 +92,10 @@
                         <div class="carousel-item">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/domestiques/105356.png" alt="Scolopendre-Loup">
+                                    <img src="./img/securites/105721.png" alt="Ours-Pieuvre">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Scololoup</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/domestiques/105644.png" alt="FrelonAsiatique-Migale">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Fresiale</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/domestiques/105843.png" alt="Requin-Crocodile">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Croquin</h3>
+                                                <h3>Piours</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -144,14 +112,14 @@
 
 
         <section class="desktop-flex">
-            <h2>Animaux doméstiques</h2>
+            <h2>Animaux de sécurité</h2>
             <div class="container-flex">
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/domestiques/105135.png" alt="Chat-Dragon">
+                        <img src="./img/securites/105338.png" alt="Babouin-Taureau">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Chagon</h3>
+                                    <h3>Baboureau</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -162,10 +130,10 @@
                 </article>
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/domestiques/105135.png" alt="Moustique-Migale">
+                        <img src="./img/securites/105547.png" alt="Lion-Gorille">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Moustigale</h3>
+                                    <h3>Liorille</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -176,25 +144,10 @@
                 </article>
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/domestiques/105309.png" alt="Poisson-Méduse">
+                        <img src="./img/securites/105659.png" alt="Jaguar-Dragon Komodo">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Poiduse</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/domestiques/105356.png" alt="Scolopendre-Loup">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Scololoup</h3>
+                                    <h3>Jaguamodo</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -205,24 +158,10 @@
                 </article>
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/domestiques/105644.png" alt="FrelonAsiatique-Migale">
+                        <img src="./img/securites/105721.png" alt="Ours-Pieuvre">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Fresiale</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/domestiques/105843.png" alt="Requin-Crocodile">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Croquin</h3>
+                                    <h3>Piours</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>

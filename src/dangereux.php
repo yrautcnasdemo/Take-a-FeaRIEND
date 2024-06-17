@@ -44,10 +44,10 @@
                         <div class="carousel-item active">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/dangereux/105116.png" alt="Serpent-Crocodile">
+                                    <img src="./img/dangereux/105116.png" alt="Cobra-Crocodile">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Serpodile</h3>
+                                                <h3>Cobdile</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -76,10 +76,10 @@
                         <div class="carousel-item">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/dangereux/105232.png" alt="Aigle-Ours">
+                                    <img src="./img/dangereux/105232.png" alt="Vautour-Ours">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Ougle</h3>
+                                                <h3>Vautours</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -92,10 +92,10 @@
                         <div class="carousel-item">
                             <article class="container-cards">
                                 <figure>
-                                    <img src="./img/dangereux/105417.png" alt="Scorpion-Aigle">
+                                    <img src="./img/dangereux/105856.png" alt="Orque-Rhinocéros">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Scololoup</h3>
+                                                <h3>Rhinorque</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -111,7 +111,7 @@
                                     <img src="./img/dangereux/105446.png" alt="Tigre-Requin">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Fresiale</h3>
+                                                <h3>Tigrequin</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -127,7 +127,7 @@
                                     <img src="./img/dangereux/105605.png" alt="Scorpion-Buffle">
                                     <figcaption>
                                         <div class="intro-card"><a href="detail.php">
-                                                <h3>Croquin</h3>
+                                                <h3>Scoruffle</h3>
                                                 <p>
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
@@ -148,10 +148,10 @@
             <div class="container-flex">
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/dangereux/105116.png" alt="Serpent-Crocodile">
+                        <img src="./img/dangereux/105116.png" alt="Cobra-Crocodile">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Serpodile</h3>
+                                    <h3>Cobdile</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -176,10 +176,10 @@
                 </article>
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/dangereux/105232.png" alt="Aigle-Ours">
+                        <img src="./img/dangereux/105232.png" alt="Vautour-Ours">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Ougle</h3>
+                                    <h3>Vautours</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -188,14 +188,13 @@
                         </figcaption>
                     </figure>
                 </article>
-            </div>
-            <div class="container2-flex">
+
                 <article class="container-cards">
                     <figure>
-                        <img src="./img/dangereux/105417.png" alt="Scorpion-Aigle">
+                        <img src="./img/dangereux/105856.png" alt="Orque-Rhinocéros">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Scololoup</h3>
+                                    <h3>Rhinorque</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -209,7 +208,7 @@
                         <img src="./img/dangereux/105446.png" alt="Tigre-Requin">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Fresiale</h3>
+                                    <h3>Tigrequin</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -223,7 +222,7 @@
                         <img src="./img/dangereux/105605.png" alt="Scorpion-Buffle">
                         <figcaption>
                             <div class="intro-card"><a href="detail.php">
-                                    <h3>Croquin</h3>
+                                    <h3>Scoruffle</h3>
                                     <p>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
@@ -232,6 +231,7 @@
                         </figcaption>
                     </figure>
                 </article>
+
             </div>
         </section>
     </main>

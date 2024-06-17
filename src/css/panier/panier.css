@@ -1,0 +1,19 @@
+/* SECTION ILLUSTRATION */
+
+.image-illus {
+  background: url("../../img/Godzilla.png") fixed;
+  background-size: cover;
+  background-position: 82% 75%;
+  height: 80vh;
+}
+
+/* SECTION PRODUITS */
+
+.produits h2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+figure img {
+  width: 50%;
+}

@@ -202,11 +202,9 @@
   .desktop-flex .container-flex {
     display: flex;
     gap: 40px;
-  }
-
-  .container2-flex {
-    display: flex;
-    gap: 40px;
+    max-width: 70%;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   /* FOOTER LEFT */
