@@ -1,14 +1,56 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-// Afficher le panier
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/panier/panier.css">
+    <link rel="stylesheet" href="./css/panier/panier-responsive.css">
+    <link rel="stylesheet" href="./css/produits/produits.css">
+    <link rel="stylesheet" href="./css/produits/produits-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Panier</title>
+</head>
 
-$sql = "SELECT * FROM animaux WHERE user_id=:user_id";
-$query = $db->prepare($sql);
+<body>
+    <main>
+        <header>
+            <div class="logo">
+                <img src="./img/logosite.png" alt="Logo Take a FeaRIEND">
+            </div>
+            <nav id="nav">
+                <ul>
+                    <div class="container-li">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Catégories</a></li>
+                        <li><a href="#">A propos</a></li>
+                    </div>
+                    <div class="container-button-li">
+                        <li><button class="Login">Login</button></li>
+                    </div>
+                </ul>
+                <div id="burger">
+                    <img src="./img/burger-bar.png" alt="Menu Burger">
+                </div>
+            </nav>
+        </header>
+        <section class="image-illus"></section>
+        <section class="produits">
+            <h2>Votre panier</h2>
+            <div class="container-produits">
+                <article class="produits-articles">
+                    <figure>
+                        <img src="./img/domestiques/105309.png" alt="test">
+                    </figure>
+                    <figcaption>
+                        <h3>Poiduse</h3>
+                    </figcaption>
+                </article>
 
-$query->bindValue(':user_id', $user_id);
-$query->execute();
+            </div>
+        </section>
+</body>
 
-$resultat->fetch_assoc($sql);
-
-    // ON AFFICHE TOUS LES RESULTATS QUI ONT UN USER_ID = 1 (Avo)
-    // boucle qui affiche tous les résultats
+</html>

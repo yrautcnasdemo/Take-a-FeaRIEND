@@ -261,6 +261,10 @@ nav.active .container-button-li li:hover {
   object-fit: cover;
 }
 
+.info {
+  color: #1e1e1e;
+}
+
 /* CONTAINER NONE EN MOBILE */
 
 .desktop-flex {
