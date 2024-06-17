@@ -207,11 +207,6 @@
     justify-content: center;
   }
 
-  .container2-flex {
-    display: flex;
-    gap: 40px;
-  }
-
   /* FOOTER LEFT */
 
   .container-footer {
