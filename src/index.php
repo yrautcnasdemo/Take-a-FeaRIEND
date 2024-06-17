@@ -1,20 +1,17 @@
 <?php
 session_start();
 require_once("connect.php");
+require_once("./template/tools.php");
 
 $sql = "SELECT * FROM animaux";
-
 $requete = $db->prepare($sql);
-
 $requete->execute();
-
 $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +26,6 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
     <section class="intro">
-
         <?php require_once("./template/header.php"); ?>
 
         <article class="text-intro">
@@ -66,22 +62,28 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                 <?php
                 // Mélanger les animaux de manière aléatoire
                 shuffle($animals);
-                //déclaration de la variable counter pour limiter les cartes affiché sur l'index
+                // Déclaration de la variable counter pour limiter les cartes affichées sur l'index
                 $counter = 0;
-                //boucle foreach pour afficher et limiter a 4 cartes les animaux de la BDD
+                // Boucle foreach pour afficher et limiter à 4 cartes les animaux de la BDD
                 foreach ($animals as $animal) {
-                    if ($counter < 4) { ?>
-
+                    if ($counter < 4) {
+                        // Définir le chemin de l'image pour chaque animal
+                        if (!empty($animal['images'])) {
+                            $imagePath = $animal['images'];
+                        } else {
+                            $imagePath = 'img/upload_animaux/nointernet.jpg';
+                        }
+                        ?>
+                        
                         <div class="card-produce">
-                            <img class="img-produce" src="/img/dangereux/105813.png" alt="Animated Card-produce Hover Effect Html & CSS">
-                            <div class="intro-produce"><a href="detail.php?id= <?= $animal['id'] ?>" class="txt-deco">
-                                    <h4 class="text-h4"><?= $animal["name"] ?></h4>
-                                    <p class="text-p"><?= $animal["content"] ?></p>
+                            <img class="img-produce" src="<?= htmlspecialchars($imagePath, ENT_QUOTES, 'UTF-8'); ?>" alt="Image de <?= htmlspecialchars($animal['name'], ENT_QUOTES, 'UTF-8'); ?>">
+                            <div class="intro-produce"><a href="detail.php?id=<?= htmlspecialchars($animal['id'], ENT_QUOTES, 'UTF-8'); ?>" class="txt-deco">
+                                    <h4 class="text-h4"><?= htmlspecialchars($animal["name"], ENT_QUOTES, 'UTF-8'); ?></h4>
+                                    <p class="text-p"><?= htmlspecialchars($animal["content"], ENT_QUOTES, 'UTF-8'); ?></p>
                                 </a>
                             </div>
                         </div>
                 <?php
-
                         $counter++;
                     } else {
                         break;
@@ -122,3 +124,4 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
 <?php
 require_once("./template/footer.php");
 ?>
+</html>
