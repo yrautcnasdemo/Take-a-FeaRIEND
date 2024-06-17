@@ -11,9 +11,19 @@
 
 .produits h2 {
   text-align: center;
-  margin-top: 40px;
+  margin: 40px;
+}
+
+.container-produits {
+  text-align: center;
 }
 
 figure img {
   width: 50%;
+  object-fit: cover;
+  height: 200px;
+}
+
+figcaption {
+  background: #d9d9d9;
 }
