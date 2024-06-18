@@ -71,10 +71,4 @@
 
     <?php
     require_once("./template/footer.php");
-
-
     ?>
-
-
-<!-- EN DURE <img src="/img/dangereux/105813.png" class="d-block mx-lg-auto" alt="Bootstrap Themes" width="auto" height="600px" loading="lazy"> -->
-    <!-- EN PHP CODE <img src="/img/dangereux/<POINTDINTERROGATION=$animal['image']?>" class="d-block mx-lg-auto" alt="Bootstrap Themes" width="auto" height="600px" loading="lazy"> -->
