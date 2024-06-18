@@ -8,12 +8,36 @@
 }
 
 /* SECTION PRODUITS */
+.produits-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .produits h2 {
   text-align: center;
-  margin-top: 40px;
+  margin: 40px;
+}
+
+.container-produits {
+  text-align: center;
+  border: 3px solid purple;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  width: 50%;
 }
 
 figure img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+}
+
+figcaption {
+  background: #d9d9d9;
   width: 50%;
+  text-align: center;
 }

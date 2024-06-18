@@ -207,6 +207,10 @@
     justify-content: center;
   }
 
+  .container-flex .container-cards figure img {
+    width: 279px;
+  }
+
   /* FOOTER LEFT */
 
   .container-footer {

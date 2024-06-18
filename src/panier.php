@@ -39,15 +39,14 @@
         <section class="image-illus"></section>
         <section class="produits">
             <h2>Votre panier</h2>
-            <div class="container-produits">
-                <article class="produits-articles">
-                    <figure>
-                        <img src="./img/domestiques/105309.png" alt="test">
-                    </figure>
-                    <figcaption>
-                        <h3>Poiduse</h3>
-                    </figcaption>
-                </article>
+            <article class="produits-articles">
+                <figure>
+                    <img src="./img/domestiques/105309.png" alt="test">
+                </figure>
+                <figcaption>
+                    <h3>Poiduse</h3>
+                </figcaption>
+            </article>
 
             </div>
         </section>
