@@ -50,9 +50,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>
@@ -70,9 +70,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>
@@ -90,9 +90,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>
@@ -111,9 +111,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>
@@ -131,9 +131,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>
@@ -151,9 +151,9 @@
                         <div class="container-figcaption">
                             <div class="figcaption-left">
                                 <p class="left-p">Quantité</p>
-                                <button id="decrease">-</button>
-                                <span id="quantity">1</span>
-                                <button id="increase">+</button>
+                                <button class="decrease">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase">+</button>
                             </div>
                             <div class="figcaption-right">
                                 <button class="delete">Supprimer</button>

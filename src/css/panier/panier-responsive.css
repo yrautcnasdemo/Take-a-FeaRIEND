@@ -47,6 +47,10 @@
     width: 100%;
   }
 
+  .produits-articles {
+    width: 20%;
+  }
+
   .produits-articles figure {
     width: 100%;
   }

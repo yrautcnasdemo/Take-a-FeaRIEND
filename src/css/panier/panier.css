@@ -74,8 +74,8 @@ figcaption h3 {
   border-radius: 5px;
 }
 
-button#decrease,
-button#increase {
+button.decrease,
+button.increase {
   border: none;
   background: none;
   cursor: pointer;
