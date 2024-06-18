@@ -167,6 +167,7 @@ nav.active .container-button-li li:hover {
 
 .cards-section h2 {
   margin-top: 40px;
+  font-size: 1.8rem;
 }
 
 .container-domestique {
@@ -193,7 +194,7 @@ nav.active .container-button-li li:hover {
 }
 
 .container-cards figure h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .container-cards figure a {

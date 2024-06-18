@@ -28,3 +28,34 @@ function showNextSlide() {
 }
 
 setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+
+// Ajout des quantités et le mettre à jour
+
+document.addEventListener("DOMContentLoaded", () => {
+  const decreaseButton = document.getElementById("decrease");
+  const increaseButton = document.getElementById("increase");
+  const quantityDisplay = document.getElementById("quantity");
+  const priceDisplay = document.getElementById("price");
+  const unitPrice = 275; // prix par article
+
+  decreaseButton.addEventListener("click", () => {
+    let quantity = parseInt(quantityDisplay.textContent);
+    if (quantity > 1) {
+      quantity--;
+      quantityDisplay.textContent = quantity;
+      updatePrice(quantity);
+    }
+  });
+
+  increaseButton.addEventListener("click", () => {
+    let quantity = parseInt(quantityDisplay.textContent);
+    quantity++;
+    quantityDisplay.textContent = quantity;
+    updatePrice(quantity);
+  });
+
+  function updatePrice(quantity) {
+    const totalPrice = unitPrice * quantity;
+    priceDisplay.textContent = `${totalPrice}€`;
+  }
+});

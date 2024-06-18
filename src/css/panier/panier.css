@@ -17,11 +17,11 @@
 .produits h2 {
   text-align: center;
   margin: 40px;
+  font-size: 1.8rem;
 }
 
 .container-produits {
   text-align: center;
-  border: 3px solid purple;
 }
 
 figure {
@@ -33,11 +33,50 @@ figure {
 figure img {
   width: 100%;
   object-fit: cover;
-  height: 200px;
+  max-height: 400px;
 }
 
 figcaption {
   background: #d9d9d9;
   width: 50%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+figcaption h3 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.produits-articles figcaption p {
+  font-size: 2rem;
+  color: #1e1e1e;
+}
+
+.left-p {
+  font-size: 1.4rem !important;
+}
+
+.figcaption-left {
+  margin-bottom: 20px;
+}
+
+.delete {
+  padding: 10px;
+  background: #d10000;
+  color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button#decrease,
+button#increase {
+  border: none;
+  background: none;
+  cursor: pointer;
 }
