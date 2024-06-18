@@ -27,34 +27,38 @@ function showNextSlide() {
   carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
 
-setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+setInterval(showNextSlide, 3000);
 
 // Ajout des quantités et le mettre à jour
 
 document.addEventListener("DOMContentLoaded", () => {
-  const decreaseButton = document.getElementById("decrease");
-  const increaseButton = document.getElementById("increase");
-  const quantityDisplay = document.getElementById("quantity");
-  const priceDisplay = document.getElementById("price");
-  const unitPrice = 275; // prix par article
+  const articles = document.querySelectorAll(".produits-articles");
 
-  decreaseButton.addEventListener("click", () => {
-    let quantity = parseInt(quantityDisplay.textContent);
-    if (quantity > 1) {
-      quantity--;
+  articles.forEach((article) => {
+    const decreaseButton = article.querySelector(".decrease");
+    const increaseButton = article.querySelector(".increase");
+    const quantityDisplay = article.querySelector(".quantity");
+    const priceDisplay = article.querySelector(".price");
+    const unitPrice = 275;
+
+    decreaseButton.addEventListener("click", () => {
+      let quantity = parseInt(quantityDisplay.textContent);
+      if (quantity > 1) {
+        quantity--;
+        quantityDisplay.textContent = quantity;
+        updatePrice(quantity, priceDisplay, unitPrice);
+      }
+    });
+
+    increaseButton.addEventListener("click", () => {
+      let quantity = parseInt(quantityDisplay.textContent);
+      quantity++;
       quantityDisplay.textContent = quantity;
-      updatePrice(quantity);
-    }
+      updatePrice(quantity, priceDisplay, unitPrice);
+    });
   });
 
-  increaseButton.addEventListener("click", () => {
-    let quantity = parseInt(quantityDisplay.textContent);
-    quantity++;
-    quantityDisplay.textContent = quantity;
-    updatePrice(quantity);
-  });
-
-  function updatePrice(quantity) {
+  function updatePrice(quantity, priceDisplay, unitPrice) {
     const totalPrice = unitPrice * quantity;
     priceDisplay.textContent = `${totalPrice}€`;
   }
