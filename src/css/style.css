@@ -609,7 +609,51 @@ textarea::placeholder {
 }
 
 
-
+/*////////////////////////ABOUT /////////////////////////////*/
+.about-section {
+  margin-top: 50px;
+}
+.about-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.about-description{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about-main-title {
+  font-family: roadRage;
+  font-size: 100px;
+  text-align: center;
+  padding-top: 80px;
+  color: rgb(151, 0, 0);
+}
+.about-text-title{
+  font-family: robotoBold;
+  font-size: 26px;
+  text-align: start;
+}
+.about-title {
+  font-family: roadRage;
+  font-size: 80px;
+  color: rgb(151, 0, 0);
+}
+.about-stat {
+  color: orangered;
+  font-family: roadRage;
+  font-size: 30px;
+  text-decoration: underline;
+}
+.about-text {
+  text-align: start;
+  font-family: robotoMed;
+  font-size: 18px;
+}
 
 
 
