@@ -33,6 +33,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -49,6 +50,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -65,6 +67,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -81,6 +84,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -97,6 +101,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -113,6 +118,7 @@
                                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                                 </p>
                                             </a>
+                                            <button class="panier">Ajouter au panier</button>
                                         </div>
                                     </figcaption>
                                 </figure>
@@ -137,6 +143,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>
@@ -151,6 +158,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>
@@ -165,6 +173,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>
@@ -180,6 +189,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>
@@ -194,6 +204,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>
@@ -208,6 +219,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
                                     </p>
                                 </a>
+                                <button class="panier">Ajouter au panier</button>
                             </div>
                         </figcaption>
                     </figure>

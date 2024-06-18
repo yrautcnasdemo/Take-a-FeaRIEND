@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+require_once("connect.php");
+
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,87 +76,7 @@
                         </div>
                     </figcaption>
                 </article>
-                <article class="produits-articles">
-                    <figure>
-                        <img src="./img/domestiques/105309.png" alt="test">
-                    </figure>
-                    <figcaption>
-                        <h3>Poiduse</h3>
-                        <p class="price">275€</p>
-                        <div class="container-figcaption">
-                            <div class="figcaption-left">
-                                <p class="left-p">Quantité</p>
-                                <button class="decrease">-</button>
-                                <span class="quantity">1</span>
-                                <button class="increase">+</button>
-                            </div>
-                            <div class="figcaption-right">
-                                <button class="delete">Supprimer</button>
-                            </div>
-                        </div>
-                    </figcaption>
-                </article>
 
-                <article class="produits-articles">
-                    <figure>
-                        <img src="./img/domestiques/105309.png" alt="test">
-                    </figure>
-                    <figcaption>
-                        <h3>Poiduse</h3>
-                        <p class="price">275€</p>
-                        <div class="container-figcaption">
-                            <div class="figcaption-left">
-                                <p class="left-p">Quantité</p>
-                                <button class="decrease">-</button>
-                                <span class="quantity">1</span>
-                                <button class="increase">+</button>
-                            </div>
-                            <div class="figcaption-right">
-                                <button class="delete">Supprimer</button>
-                            </div>
-                        </div>
-                    </figcaption>
-                </article>
-                <article class="produits-articles">
-                    <figure>
-                        <img src="./img/domestiques/105309.png" alt="test">
-                    </figure>
-                    <figcaption>
-                        <h3>Poiduse</h3>
-                        <p class="price">275€</p>
-                        <div class="container-figcaption">
-                            <div class="figcaption-left">
-                                <p class="left-p">Quantité</p>
-                                <button class="decrease">-</button>
-                                <span class="quantity">1</span>
-                                <button class="increase">+</button>
-                            </div>
-                            <div class="figcaption-right">
-                                <button class="delete">Supprimer</button>
-                            </div>
-                        </div>
-                    </figcaption>
-                </article>
-                <article class="produits-articles">
-                    <figure>
-                        <img src="./img/domestiques/105309.png" alt="test">
-                    </figure>
-                    <figcaption>
-                        <h3>Poiduse</h3>
-                        <p class="price">275€</p>
-                        <div class="container-figcaption">
-                            <div class="figcaption-left">
-                                <p class="left-p">Quantité</p>
-                                <button class="decrease">-</button>
-                                <span class="quantity">1</span>
-                                <button class="increase">+</button>
-                            </div>
-                            <div class="figcaption-right">
-                                <button class="delete">Supprimer</button>
-                            </div>
-                        </div>
-                    </figcaption>
-                </article>
             </div>
         </section>
 
