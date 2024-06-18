@@ -1,3 +1,52 @@
+<?php
+
+session_start();
+
+require_once("connect.php");
+
+$sql = "SELECT * FROM panier";
+
+$query = $db->prepare($sql);
+
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+if ($_POST) {
+    if (
+        isset($_POST["user_id"]) &&
+        isset($_POST["animal_id"]) &&
+        isset($_POST["quantity"])
+    ) {
+
+
+        $user_id = strip_tags($_POST["user_id"]);
+        $animal_id = strip_tags($_POST["animal_id"]);
+        $quantity = strip_tags($_POST["quantity"]);
+    }
+
+    $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, :quantity)";
+    $query = $db->prepare($sql);
+
+    $query->bindValue(":user_id", $user_id);
+    $query->bindValue(":animal_id", $animal_id);
+    $query->bindValue(":quantity", $quantity);
+
+    $query->execute();
+
+    require_once("close.php");
+
+    header("Location: domestiques.php");
+    exit();
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,21 +72,22 @@
                 <div class="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/domestiques/0f5fabd8.png" alt="Chat-Dragon">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Chagon</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                                <button class="panier">Ajouter au panier</button>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
+                            <?php foreach ($result as $panier) : ?>
+                                <article class="container-cards">
+                                    <figure>
+                                        <img src="./img/domestiques/0f5fabd8.png" alt="Chat-Dragon">
+                                        <figcaption>
+                                            <div class="intro-card"><a href="detail.php">
+                                                    <h3>Chagon</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
+                                                    </p>
+                                                    <button class="panier">Ajouter au panier</button>
+                                                </a>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </article>
                         </div>
                         <div class="carousel-item">
                             <article class="container-cards">
@@ -224,6 +274,7 @@
                         </figcaption>
                     </figure>
                 </article>
+            <?php endforeach; ?>
             </div>
         </section>
     </main>
