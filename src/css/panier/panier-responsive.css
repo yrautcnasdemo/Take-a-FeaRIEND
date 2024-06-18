@@ -1,0 +1,22 @@
+/* TABLET */
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .container-articles {
+    display: flex;
+  }
+
+  .container-articles {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .produits-articles figure {
+    width: 90%;
+  }
+
+  .produits-articles figcaption {
+    width: 90%;
+  }
+}
