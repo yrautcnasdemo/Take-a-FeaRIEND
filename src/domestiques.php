@@ -72,22 +72,21 @@ if ($_POST) {
                 <div class="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <?php foreach ($result as $panier) : ?>
-                                <article class="container-cards">
-                                    <figure>
-                                        <img src="./img/domestiques/0f5fabd8.png" alt="Chat-Dragon">
-                                        <figcaption>
-                                            <div class="intro-card"><a href="detail.php">
-                                                    <h3>Chagon</h3>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                    </p>
-                                                    <button class="panier">Ajouter au panier</button>
-                                                </a>
-                                            </div>
-                                        </figcaption>
-                                    </figure>
-                                </article>
+                            <article class="container-cards">
+                                <figure>
+                                    <img src="./img/domestiques/0f5fabd8.png" alt="Chat-Dragon">
+                                    <figcaption>
+                                        <div class="intro-card"><a href="detail.php">
+                                                <h3>Chagon</h3>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
+                                                </p>
+                                                <button class="panier">Ajouter au panier</button>
+                                            </a>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                            </article>
                         </div>
                         <div class="carousel-item">
                             <article class="container-cards">
@@ -274,7 +273,6 @@ if ($_POST) {
                         </figcaption>
                     </figure>
                 </article>
-            <?php endforeach; ?>
             </div>
         </section>
     </main>
