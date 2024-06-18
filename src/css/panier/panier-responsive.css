@@ -58,4 +58,9 @@
   .produits-articles figcaption {
     width: 100%;
   }
+
+  .container-figcaption {
+    display: flex;
+    justify-content: space-around;
+  }
 }
