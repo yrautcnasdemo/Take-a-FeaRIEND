@@ -74,8 +74,8 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                         } else {
                             $imagePath = 'img/upload_animaux/nointernet.jpg';
                         }
-                        ?>
-                        
+                ?>
+
                         <div class="card-produce">
                             <img class="img-produce" src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
                             <div class="intro-produce"><a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>" class="txt-deco">
@@ -95,42 +95,40 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <section class="discount">
-    <div class="discount-pub">
-        <div class="discount-left">
-            <h4 class="discount-title">DEAL OF THE DAY</h4>
+        <div class="discount-pub">
+            <div class="discount-left">
+                <h4 class="discount-title">DEAL OF THE DAY</h4>
+            </div>
+            <div class="discount-price">
+                <p>30% de réduction</p>
+            </div>
+            <div class="discount-btn">
+                <button class="discount-buy">Acheter</button>
+            </div>
         </div>
-        <div class="discount-price">
-            <p>30% de réduction</p>
-        </div>
-        <div class="discount-btn">
-            <button class="discount-buy">Acheter</button>
-        </div>
-    </div>
-    <div class="discount-produce">
-        <?php foreach ($animals as $animal) : ?>
-            <?php if ($animal['id'] == 35) : ?>
-                <div class="card-produce">
-                    <video width="350" height="560" controls>
-                        <source src="/img/deal/Meg.mp4" type="video/mp4">
-                    </video>
-                    <div class="intro-produce">
-                        <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>" class="txt-deco">
-                            <h4 class="text-h4"><?= htmlspecialchars($animal["name"]); ?></h4>
-                            <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
-                        </a>
+        <div class="discount-produce">
+            <?php foreach ($animals as $animal) : ?>
+                <?php if ($animal['id'] == 35) : ?>
+                    <div class="card-produce">
+                        <video width="350" height="560" controls>
+                            <source src="/img/deal/Meg.mp4" type="video/mp4">
+                        </video>
+                        <div class="intro-produce">
+                            <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>" class="txt-deco">
+                                <h4 class="text-h4"><?= htmlspecialchars($animal["name"]); ?></h4>
+                                <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-</section>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </section>
     <script src="/js/script.js"></script>
 </body>
 
 <?php
 require_once("./template/footer.php");
 ?>
+
 </html>
-
-
-

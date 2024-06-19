@@ -13,11 +13,11 @@
   }
 
   .produits-articles figure {
-    width: 90%;
+    width: 100%;
   }
 
   .produits-articles figcaption {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -39,6 +39,7 @@
 
   figure {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
   }
