@@ -4,7 +4,7 @@ session_start();
 
 require_once("connect.php");
 
-$sql = "SELECT * FROM animaux WHERE category = animaux dangereux";
+$sql = "SELECT * FROM animaux WHERE category = 'animaux dangereux'";
 
 $query = $db->prepare($sql);
 
