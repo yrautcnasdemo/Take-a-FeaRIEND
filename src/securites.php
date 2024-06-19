@@ -4,20 +4,50 @@ session_start();
 
 require_once("connect.php");
 
-
-
-if ($_POST && isset($_POST['ajouter_panier'])) {
-    if (isset($_POST["animal_id"]) && isset($_SESSION["user_id"])) {
+if (isset($_POST['ajouter_panier'])) {
+    echo "a";
+    if (isset($_POST["animal_id"]) && isset($_SESSION["user"]["id"])) {
+        echo "b";
         $animal_id = strip_tags($_POST["animal_id"]);
-        $user_id = $_SESSION["user_id"];
+        $user_id = $_SESSION["user"]["id"];
 
-        $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, :quantity";
+        $sql = "SELECT * FROM panier WHERE user_id = :user_id AND animal_id = :animal_id ";
         $query = $db->prepare($sql);
 
-        $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
-        $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+        $query->bindValue(":user_id", $user_id);
+        $query->bindValue(":animal_id", $animal_id);
 
         $query->execute();
+        echo "1";
+
+        $panier = $query->fetch(PDO::FETCH_ASSOC);
+        echo "2";
+
+        if (!empty($panier)) {
+            // On vérifie si le panier contient déjà un article similaire
+            $quantite = $panier["quantity"];
+            $quantite++;
+            $panier_id = $panier['id'];
+
+            $sql = "UPDATE panier SET quantity = :quantity WHERE id = :panier_id";
+            $query = $db->prepare($sql);
+            echo "PANIER ID " . $panier_id;
+
+            $query->bindValue(":quantity", $quantite);
+            $query->bindValue(":panier_id", $panier_id);
+
+            $query->execute();
+            echo "marche";
+        } else {
+            // Le panier ne contient pas d'article similaire
+            $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, 1)";
+            $query = $db->prepare($sql);
+
+            $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+            $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+
+            $query->execute();
+        }
     }
 }
 
@@ -55,74 +85,34 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
             <div class="container-domestique">
                 <div class="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/securites/105338.png" alt="Babouin-Taureau">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Baboureau</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                            <button class="panier">Ajouter au panier</button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/securites/105547.png" alt="Lion-Gorille">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Liorille</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                            <button class="panier">Ajouter au panier</button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/securites/105659.png" alt="Jaguar-Dragon Komodo">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Jaguamodo</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                            <button class="panier">Ajouter au panier</button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/securites/105721.png" alt="Ours-Pieuvre">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Piours</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                            <button class="panier">Ajouter au panier</button>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
+                        <?php
+                        // Boucle foreach pour afficher les animaux de la BDD
+                        foreach ($animals as $animal) {
+                            if (!empty($animal['images'])) {
+                                $imagePath = $animal['images'];
+                            } else {
+                                $imagePath = 'img/upload_animaux/nointernet.jpg';
+                            } ?>
+
+                            <div class="carousel-item">
+                                <article class="container-cards">
+                                    <figure>
+                                        <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
+                                        <figcaption>
+                                            <div class="intro-card"><a href="detail.php">
+                                                    <h3><?php echo $animal['name']; ?></h3>
+                                                    <p>
+                                                        <?php echo $animal['content']; ?>
+                                                    </p>
+                                                </a>
+                                                <button class="panier">Ajouter au panier</button>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </article>
+                            </div>
+
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -154,9 +144,9 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
                                         <h3><?= htmlspecialchars($animal["name"]); ?></h3>
                                         <p><?= htmlspecialchars($animal["content"]); ?></p>
                                     </a>
-                                    <form method="post">
+                                    <form action="" method="post">
                                         <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
-                                        <button type="submit" name="ajouter_panier" class="panier">Ajouter au panier</button>
+                                        <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
                                     </form>
 
                                 </div>

@@ -21,7 +21,9 @@ if (isset($_POST['loginUser'])) {
             // On utilise une seule session pour stocker l'utilisateur
             $_SESSION['user'] = [
                 'email' => $user['email'],
-                'id' => $user['id']
+                'id' => $user['id'],
+                "nom" => $user['nom'],
+                "prenom" => $user['prenom']
             ];
             header('Location: index.php');
             exit(); // On arrete le script aprés la redirection

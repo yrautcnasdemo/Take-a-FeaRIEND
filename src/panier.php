@@ -2,14 +2,15 @@
 
 session_start();
 
+require_once("connect.php");
+
 if (isset($_SESSION['user']['id'])) {
     $user_id = $_SESSION['user']['id'];
 
     // Requête pour récupérer les articles dans le panier de l'utilisateur
-    $sql = "SELECT p.*, a.name, a.price, a.images, p.quantity as quantity_in_cart
-            FROM panier p 
-            JOIN animaux a ON p.animal_id = a.id 
-            WHERE p.user_id = :user_id";
+    $sql = "SELECT p.*
+            FROM panier p
+            WHERE user_id = :user_id";
 
     $query = $db->prepare($sql);
     $query->bindValue(":user_id", $user_id);
@@ -78,11 +79,23 @@ if (isset($_SESSION['user']['id'])) {
         <?php require_once("./template/header.php") ?>
         <section class="image-illus"></section>
         <section class="produits">
-            <h2>Votre panier <!-- Nom utilisateur et prénom --></h2>
+            <h2>Votre panier <?= $_SESSION['user']["nom"] . " " . $_SESSION['user']["prenom"]; ?></h2>
             <div class="container-articles">
                 <?php
-                // Boucle foreach pour afficher les animaux de la BDD
-                foreach ($panier_item as $animal) {
+                // Boucle foreach pour afficher le panier
+                foreach ($panier_item as $panier) {
+
+                    $animal_id = $panier["animal_id"];
+
+                    $sql = "SELECT a.*
+                    FROM animaux a
+                    WHERE id = :animal_id";
+
+                    $query = $db->prepare($sql);
+                    $query->bindValue(":animal_id", $animal_id);
+                    $query->execute();
+                    $animal = $query->fetch(PDO::FETCH_ASSOC);
+
                     // Définir le chemin de l'image pour chaque animal
                     if (!empty($animal['images'])) {
                         $imagePath = $animal['images'];
@@ -94,13 +107,13 @@ if (isset($_SESSION['user']['id'])) {
                         <figure>
                             <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
                             <figcaption>
-                                <h3><?= htmlspecialchars($animal["name"]); ?></h3>
-                                <p class="price">275€</p>
+                                <h3><?= htmlspecialchars($animal['name']) ?></h3>
+                                <p class="price" data-unitPrice="<?php echo $animal["price"]; ?>">PRIX TOTAL QUI S'AFFICHE PAR JS</p>
                                 <div class="container-figcaption">
                                     <div class="figcaption-left">
                                         <p class="left-p">Quantité</p>
                                         <button class="decrease">-</button>
-                                        <span class="quantity">1</span>
+                                        <span class="quantity"><?php echo $panier["quantity"]; ?></span>
                                         <button class="increase">+</button>
                                     </div>
                                     <div class="figcaption-right">

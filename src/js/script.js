@@ -39,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const increaseButton = article.querySelector(".increase");
     const quantityDisplay = article.querySelector(".quantity");
     const priceDisplay = article.querySelector(".price");
-    const unitPrice = 275;
+    const unitPrice = parseInt(priceDisplay.getAttribute("data-unitPrice"));
+
+    let quantity = parseInt(quantityDisplay.textContent);
+    updatePrice(quantity, priceDisplay, unitPrice);
 
     decreaseButton.addEventListener("click", () => {
       let quantity = parseInt(quantityDisplay.textContent);
