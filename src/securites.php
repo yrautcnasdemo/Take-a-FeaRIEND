@@ -4,6 +4,23 @@ session_start();
 
 require_once("connect.php");
 
+
+
+if ($_POST && isset($_POST['ajouter_panier'])) {
+    if (isset($_POST["animal_id"]) && isset($_SESSION["user_id"])) {
+        $animal_id = strip_tags($_POST["animal_id"]);
+        $user_id = $_SESSION["user_id"];
+
+        $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, :quantity";
+        $query = $db->prepare($sql);
+
+        $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+        $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+
+        $query->execute();
+    }
+}
+
 $sql = "SELECT * FROM animaux WHERE category = 'animaux de sécurités'";
 
 $query = $db->prepare($sql);
@@ -110,6 +127,9 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </section>
+
+
+
 
 
         <section class="desktop-flex">
