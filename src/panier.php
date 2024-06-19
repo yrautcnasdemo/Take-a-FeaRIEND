@@ -2,8 +2,8 @@
 
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
+if (isset($_SESSION['user']['id'])) {
+    $user_id = $_SESSION['user']['id'];
 
     // Requête pour récupérer les articles dans le panier de l'utilisateur
     $sql = "SELECT p.*, a.name, a.price, a.images, p.quantity as quantity_in_cart
