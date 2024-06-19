@@ -88,6 +88,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,6 +99,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
     <link rel="stylesheet" href="./css/produits/produits-responsive.css">
     <title>Take a FeaRIEND</title>
 </head>
+
 <body>
     <?php require_once("./template/header.php"); ?>
     <div class="bannerOffice"></div>
@@ -165,7 +167,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                                     <th scope="col">Catégorie</th>
                                     <th scope="col">Prix</th>
                                     <th scope="col">Promotion</th>
-                                    <th scope="col"></th>
+                                    <th scope="col"><input type="checkbox" id="selectAllPromoCheckbox"></th>
                                 </tr>
                             </thead>
                             <?php foreach ($result as $animaux) : ?>
@@ -197,4 +199,5 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
+
 </html>

@@ -63,3 +63,21 @@ document.addEventListener("DOMContentLoaded", () => {
     priceDisplay.textContent = `${totalPrice}€`;
   }
 });
+
+// Faire la checkbox pour tout sélectionner avec un checkbox
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectAllPromoCheckbox = document.getElementById(
+    "selectAllPromoCheckbox"
+  );
+  const deleteCheckboxes = document.querySelectorAll(
+    'input[name="delete_ids[]"]'
+  );
+
+  // Ecouter les changements sur la checkbox "Sélectionner tout (Promotion)"
+  selectAllPromoCheckbox.addEventListener("change", function () {
+    deleteCheckboxes.forEach((checkbox) => {
+      checkbox.checked = selectAllPromoCheckbox.checked;
+    });
+  });
+});

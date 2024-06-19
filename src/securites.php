@@ -10,10 +10,7 @@ $query = $db->prepare($sql);
 
 $query->execute();
 
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
-
+$animals = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -118,66 +115,33 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
         <section class="desktop-flex">
             <h2>Animaux de sécurité</h2>
             <div class="container-flex">
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/securites/105338.png" alt="Babouin-Taureau">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Baboureau</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                                <button class="panier">Ajouter au panier</button>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/securites/105547.png" alt="Lion-Gorille">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Liorille</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                                <button class="panier">Ajouter au panier</button>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/securites/105659.png" alt="Jaguar-Dragon Komodo">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Jaguamodo</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                                <button class="panier">Ajouter au panier</button>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/securites/105721.png" alt="Ours-Pieuvre">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Piours</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                                <button class="panier">Ajouter au panier</button>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
+                <?php
+                // Boucle foreach pour afficher les animaux de la BDD
+                foreach ($animals as $animal) {
+                    // Définir le chemin de l'image pour chaque animal
+                    if (!empty($animal['images'])) {
+                        $imagePath = $animal['images'];
+                    } else {
+                        $imagePath = 'img/upload_animaux/nointernet.jpg';
+                    }
+                ?>
+                    <article class="container-cards">
+                        <figure>
+                            <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
+                            <figcaption>
+                                <div class="intro-card">
+                                    <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>">
+                                        <h3><?= htmlspecialchars($animal["name"]); ?></h3>
+                                        <p><?= htmlspecialchars($animal["content"]); ?></p>
+                                    </a>
+                                    <button class="panier">Ajouter au panier</button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </article>
+                <?php
+                }
+                ?>
             </div>
         </section>
     </main>

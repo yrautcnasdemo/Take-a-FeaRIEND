@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+require_once("connect.php");
+
+$sql = "SELECT * FROM animaux WHERE category = 'Happy tree Friends'";
+
+$query = $db->prepare($sql);
+
+$query->execute();
+
+$animals = $query->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +34,7 @@
         <?php require_once("./template/header.php") ?>
         <section class="image-illustration"></section>
         <section class="cards-section">
-            <h2>Happy Three Friends</h2>
+            <h2>Happy Tree Friends</h2>
             <div class="container-domestique">
                 <div class="carousel">
                     <div class="carousel-inner">
@@ -124,95 +140,36 @@
             <p class="info">* Un don de 100€ pour les personnes qui arrivent à les garder vivants</p>
         </section>
 
-
         <section class="desktop-flex">
-            <h2>Happy Three Friends</h2>
+            <h2>Happy Tree Friends</h2>
             <div class="container-flex">
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/cub.png" alt="Cub">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Cub</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/cuddles.png" alt="Cuddles">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Cuddles</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/flaky.png" alt="Flaky">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Flaky</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/lumpy.png" alt="Lumpy">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Lumpy</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/nutty.png" alt="Nutty">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Nutty</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="container-cards">
-                    <figure>
-                        <img src="./img/happytreefriends/petunia.png" alt="Petunia">
-                        <figcaption>
-                            <div class="intro-card"><a href="detail.php">
-                                    <h3>Petunia</h3>
-                                    <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                    </p>
-                                </a>
-                            </div>
-                        </figcaption>
-                    </figure>
-                </article>
+                <?php
+                // Boucle foreach pour afficher les animaux de la BDD
+                foreach ($animals as $animal) {
+                    // Définir le chemin de l'image pour chaque animal
+                    if (!empty($animal['images'])) {
+                        $imagePath = $animal['images'];
+                    } else {
+                        $imagePath = 'img/upload_animaux/nointernet.jpg';
+                    }
+                ?>
+                    <article class="container-cards">
+                        <figure>
+                            <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
+                            <figcaption>
+                                <div class="intro-card">
+                                    <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>">
+                                        <h3><?= htmlspecialchars($animal["name"]); ?></h3>
+                                        <p><?= htmlspecialchars($animal["content"]); ?></p>
+                                    </a>
+                                    <button class="panier">Ajouter au panier</button>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </article>
+                <?php
+                }
+                ?>
             </div>
             <p class="info">* Un don de 100€ pour les personnes qui arrivent à les garder vivants</p>
         </section>
