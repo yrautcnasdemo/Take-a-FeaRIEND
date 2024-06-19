@@ -417,8 +417,9 @@ textarea {
 
 .promotion-checkbox {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: start;
+  padding-left: 20px;
 }
 
 .right-column {

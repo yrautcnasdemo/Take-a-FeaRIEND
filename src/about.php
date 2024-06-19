@@ -2,6 +2,7 @@
     session_start();
     require_once("connect.php");
     require_once("./template/header.php");
+
 ?>
 
 <!DOCTYPE html>

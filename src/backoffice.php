@@ -143,8 +143,8 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
             </form>
         </div>
         <div class="Admin-title">
-            <h2>ADMINISTRATEUR:</h2>
-            <span>Nickname</span>
+            <h2>Bienvenue</h2>
+            <span>Administrateur</span>
         </div>
     </section>
     <section>
@@ -173,7 +173,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                                     <tr>
                                         <td>
                                             <button class="btn btn-primary btn-sm"><a href="detail.php?id=<?= $animaux["id"] ?>">Voir</a></button>
-                                            <button class="btn btn-warning btn-sm"><a href="edit.php?id=<?= $animaux["id"] ?>">Modifier</a></button>
+                                            <button class="btn btn-warning btn-sm"><a href="update.php?id=<?= $animaux["id"] ?>">Modifier</a></button>
                                             <button class="btn btn-danger btn-sm"><a href="delete.php?id=<?= $animaux["id"] ?>">Supprimer</a></button>
                                         </td>
                                         <td><?= $animaux['id'] ?></td>
