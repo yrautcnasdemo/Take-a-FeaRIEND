@@ -3,7 +3,33 @@ session_start();
 
 require_once("connect.php");
 
+if ($_POST) {
+    if (
+        isset($_POST["user_id"]) &&
+        isset($_POST["animal_id"]) &&
+        isset($_POST["quantity"])
+    ) {
 
+
+        $user_id = strip_tags($_POST["user_id"]);
+        $animal_id = strip_tags($_POST["animal_id"]);
+        $quantity = strip_tags($_POST["quantity"]);
+    }
+
+    $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, :quantity)";
+    $query = $db->prepare($sql);
+
+    $query->bindValue(":user_id", $user_id);
+    $query->bindValue(":animal_id", $animal_id);
+    $query->bindValue(":quantity", $quantity);
+
+    $query->execute();
+
+    require_once("close.php");
+
+    header("Location: domestiques.php");
+    exit();
+}
 
 
 

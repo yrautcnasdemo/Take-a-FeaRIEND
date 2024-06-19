@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+
+require_once("connect.php");
+
+$sql = "SELECT * FROM animaux WHERE category = animaux de sécurités";
+
+$query = $db->prepare($sql);
+
+$query->execute();
+
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
