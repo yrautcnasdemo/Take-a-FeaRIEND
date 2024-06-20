@@ -69,6 +69,28 @@ body {
   background-position: top 0px right 0px;
   height: 1200px;
 }
+.happy-box {
+  height: 172px;
+  width: 300px;
+  border: 2px solid rgb(31, 31, 31);
+  border-radius: 10px;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+}
+.happy-box:hover {
+  transition: 0.2s ease-in-out;
+  filter: drop-shadow(0 0 0.30rem rgb(27, 27, 27));
+}
+.stickernew {
+  position: absolute;
+  top: 175px;
+  left: 320px;
+  width: 60px;
+  height: auto;
+  z-index: 5;
+}
+
 .text-intro {
   display: flex;
   flex-direction: column;
@@ -106,6 +128,33 @@ body {
   flex-direction: row;
   justify-content: space-around;
 }
+.little-box {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: transform 0.3s ease, font-family 0.3s ease;
+}
+.category-link {
+  text-decoration: none;
+}
+.category-text {
+  font-family: robotoMed;
+  font-size: 24px;
+  transition: font-family 0.3s ease, transform 0.3s ease; 
+}
+.category-link:hover .category-text {
+  font-family: roadRage;
+  font-size: 40px;
+  transform: rotate(-5deg);
+  color: rgb(255, 255, 255);
+}
+.category-link:hover .category-text {
+  font-family: roadRage;
+  font-size: 40px;
+  transform: rotate(-5deg);
+  color: rgb(255, 255, 255);
+}
+
 .little-box {
   display: flex;
   align-items: center;
@@ -216,6 +265,10 @@ body {
 .txt-deco{
   text-decoration: none;
   color: white;
+}
+.txt-limit {
+  height: 145px;
+  overflow-y: scroll;
 }
 .text-p {
   font-size: 16px;
@@ -682,6 +735,10 @@ textarea::placeholder {
   border-radius: 20px;
   border: 2px solid white;
 }
+.update-form-card {
+  display: flex;
+  gap: 50px;
+}
 .update-title{
   font-family: roadRage;
   font-size: 60px;
@@ -693,7 +750,10 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 50%;
+}
+.update-form-right {
+  width: 350px;
+  margin-top: 10px;
 }
 .uptade-row{
   display: flex;
@@ -705,13 +765,18 @@ textarea::placeholder {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 20px;
   gap: 10px;
 }
 .update-price{
   width: 100px;
 }
+.discount-update {
+  margin-top: 20px;
+}
 .update-btn {
   width: 100px;
+  margin-top: 15px;
 }
 
 
@@ -787,6 +852,11 @@ textarea::placeholder {
 
 
 /*INDEX DEAL OF THE DAY*/
+@media all and (min-width: 1340px) and (max-width: 1700px) {
+  .discount-pub {
+    padding-left: 50px;
+  }
+}
 @media all and (min-width: 768px) and (max-width: 1340px) {
   .discount {
     flex-direction: row;
@@ -817,15 +887,6 @@ textarea::placeholder {
   }
   .discount-btn {
     margin-top: 50px;
-  }
-  
-  .discount-buy {
-    font-family: robotoMed;
-    border-radius: 15px;
-    border: none;
-    width: 200px;
-    height: 70px;
-    font-size: 50px;
   }
   .discount-produce {
     display: flex;
@@ -873,15 +934,6 @@ textarea::placeholder {
   }
   .discount-btn {
     margin-top: 20px;
-  }
-  
-  .discount-buy {
-    font-family: robotoMed;
-    border-radius: 15px;
-    border: none;
-    width: 150px;
-    height: 40px;
-    font-size: 20px;
   }
   .discount-produce {
     display: flex;

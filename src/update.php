@@ -1,84 +1,114 @@
-<?php 
+<?php
 session_start();
 
-if ($_POST){
+// Traitement du formulaire de mise à jour
+if ($_POST) {
     if (isset($_POST['id']) && !empty($_POST['id'])
         && isset($_POST['name']) && !empty($_POST['name'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['category']) && !empty($_POST['category'])
         && isset($_POST['price']) && !empty($_POST['price'])) {
-        
+
         require_once('connect.php');
-    
+
         $id = strip_tags($_POST["id"]);
         $name = strip_tags($_POST["name"]);
         $content = strip_tags($_POST["content"]);
         $category = strip_tags($_POST["category"]);
         $price = strip_tags($_POST["price"]);
-        
-        // Vérification de la promotion pour qu'elle soit bien prise en compte si la case n'est pas coché
-        if (isset($_POST['discount'])) {
-            $discount = 1; // La promotion est activée
-        } else {
-            $discount = 0; // La promotion n'est pas activée
+
+        // Vérification de la promotion
+        $discount = isset($_POST['discount']) ? 1 : 0;
+
+        // Gestion de l'upload de l'image
+        $imagePath = ""; // Initialisation de la variable
+        if (isset($_FILES["image"]) && $_FILES["image"]["error"] === 0) {
+            $allowed = [
+                "jpg" => "image/jpeg",
+                "jpeg" => "image/jpeg",
+                "png" => "image/png"
+            ];
+
+            $filename = $_FILES["image"]["name"];
+            $filetype = $_FILES["image"]["type"];
+            $filesize = $_FILES["image"]["size"];
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
+            if (!array_key_exists($extension, $allowed) || !in_array($filetype, $allowed)) {
+                die("Erreur : le format du fichier est incorrect");
+            }
+
+            if ($filesize > 1024 * 1024) {
+                die("Fichier trop volumineux");
+            }
+
+            $newname = md5(uniqid()) . ".$extension";
+            $newfilename = __DIR__ . "/img/upload_animaux/$newname";
+
+            if (!move_uploaded_file($_FILES["image"]["tmp_name"], $newfilename)) {
+                die("L'upload a échoué");
+            }
+
+            chmod($newfilename, 0644);
+            $imagePath = "img/upload_animaux/$newname"; // Chemin relatif à stocker dans la base de données
         }
 
-        // Modification de l'animal dans la base de données
-        $sql = 'UPDATE animaux SET `name`=:name, `content`=:content, `category`=:category, `price`=:price, 
-        `discount`=:discount WHERE `id`=:id;';
-    
+        // Construction de la requête SQL
+        $sql = 'UPDATE animaux SET `name`=:name, `content`=:content, `category`=:category, `price`=:price, `discount`=:discount';
+        if ($imagePath) {
+            $sql .= ', `images`=:images';
+        }
+        $sql .= ' WHERE `id`=:id;';
+
         $query = $db->prepare($sql);
-    
+
         $query->bindValue(":id", $id, PDO::PARAM_INT);
         $query->bindValue(":name", $name, PDO::PARAM_STR);
         $query->bindValue(":content", $content, PDO::PARAM_STR);
         $query->bindValue(":category", $category, PDO::PARAM_STR);
         $query->bindValue(":price", $price, PDO::PARAM_INT);
-        $query->bindValue(":discount", $discount, PDO::PARAM_INT); // Assurez-vous de définir le type de données correctement
-    
+        $query->bindValue(":discount", $discount, PDO::PARAM_INT);
+        if ($imagePath) {
+            $query->bindValue(":images", $imagePath, PDO::PARAM_STR);
+        }
+
         $query->execute();
-    
+
         $_SESSION['message'] = "Fiche animal modifiée";
         header("Location: detail.php?id=$id");
         exit();
-    
+
     } else {
         $_SESSION['erreur'] = "Le formulaire est incomplet";
         header('Location: update.php?id=' . $_POST['id']);
         exit();
     }
 }
-    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "ajout.php" du projet CRUD
-    
-    
-    // ICI COMMENCE LA REPRISE D'UNE PARTIE DE "details.php" (commentaire néttoyés pour plus de clareté, voir details.php pour avoir la totalité des commentaires)
-    if(isset ($_GET["id"]) && !empty($_GET["id"])){
-        require_once('connect.php');
-    
-        $id = strip_tags($_GET["id"]);
-    
-        $sql = "SELECT * FROM animaux WHERE id = :id;";
-    
-        $query = $db->prepare($sql);
-    
-        $query->bindValue(':id', $id, PDO::PARAM_INT);
-    
-        $query->execute();
-    
-        $animaux = $query->fetch();
-    
-        if(!$animaux){
-            $_SESSION['erreur'] = "Cet id n'existe pas, votre vie est un echec...";
-            // header('Location: index.php');
-        }
-    
-    }else{
-        $_SESSION["erreur"] = "URL invalide";
-        // header("Location: index.php");
+
+// Récupération des données actuelles de l'animal si l'id est présent dans l'URL
+if (isset($_GET["id"]) && !empty($_GET["id"])) {
+    require_once('connect.php');
+
+    $id = strip_tags($_GET["id"]);
+
+    $sql = "SELECT * FROM animaux WHERE id = :id;";
+
+    $query = $db->prepare($sql);
+
+    $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+    $query->execute();
+
+    $animaux = $query->fetch();
+
+    if (!$animaux) {
+        $_SESSION['erreur'] = "Cet id n'existe pas, votre vie est un échec...";
     }
-    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "detail.php" 
-    
-    ?>
+
+} else {
+    $_SESSION["erreur"] = "URL invalide";
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -99,51 +129,73 @@ if ($_POST){
     <?php require_once("./template/header.php"); ?>
     <main class="container">
         <div class="row">
-            <main class="col-12">
+            <main class="col-5">
                 <section class="update-box">
-                        <h1 class="update-title">Modifier un animal</h1>
-                        <form class="update-form" method="post">
+                    <h1 class="update-title">Modifier un animal</h1>
+                    <form class="update-form-card" method="post" enctype="multipart/form-data">
+                        <div class="update-form">
                             <div class="form-group update-name">
                                 <label for="name">Nom:</label>
-                                <input type="text" id="name" name="name" class="form-control" value="<?= $animaux['name'] ?>">
+                                <input type="text" id="name" name="name" class="form-control" value="<?= $animaux['name'] ?? '' ?>">
                             </div>
                             <div class="form-group">
                                 <label for="content">Description:</label>
-                                <textarea id="content" name="content" class="form-control"><?= $animaux['content'] ?></textarea>
+                                <textarea id="content" name="content" class="form-control"><?= $animaux['content'] ?? '' ?></textarea>
                             </div>
-
-                            <div class="uptade-row">
+                            <div class="update-row">
                                 <div class="form-group">
                                     <label for="category">Catégorie:</label>
-                                    <select name="category" id="category" value="<?= $animaux['category']?>" required>
-                                        <option value="animaux domestiques">Animaux domestiques</option>
-                                        <option value="animaux de sécurités">Animaux de sécurités</option>
-                                        <option value="animaux dangereux">Animaux dangereux</option>
-                                        <option value="Happy tree Friends">Happy tree Friends</option>
+                                    <select name="category" id="category" required>
+                                        <option value="animaux domestiques" <?= ($animaux['category'] ?? '') === 'animaux domestiques' ? 'selected' : '' ?>>Animaux domestiques</option>
+                                        <option value="animaux de sécurité" <?= ($animaux['category'] ?? '') === 'animaux de sécurité' ? 'selected' : '' ?>>Animaux de sécurité</option>
+                                        <option value="animaux dangereux" <?= ($animaux['category'] ?? '') === 'animaux dangereux' ? 'selected' : '' ?>>Animaux dangereux</option>
+                                        <option value="Happy tree Friends" <?= ($animaux['category'] ?? '') === 'Happy tree Friends' ? 'selected' : '' ?>>Happy tree Friends</option>
                                     </select>
                                 </div>
                                 <div class="update-price-row form-group">
                                     <label for="price">Prix:</label>
-                                    <input type="text" id="price" name="price" class="update-price form-control" value="<?= $animaux['price']?>">
+                                    <input type="text" id="price" name="price" class="update-price form-control" value="<?= $animaux['price'] ?? '' ?>">
                                 </div>
                                 <div class="form-group">
-                                    <div>
+                                    <div class="discount-update">
                                         <label for="discount">Promotion:</label>
-                                        <input type="checkbox" name="discount" id="discount" value="<?= $animaux['discount']?>" class="form-check-input">
+                                        <input type="checkbox" name="discount" id="discount" <?= isset($animaux['discount']) && $animaux['discount'] ? 'checked' : '' ?> class="form-check-input">
                                     </div>
                                 </div>
+                                <div class="update-form-right">
+                                    <div class="form-group">
+                                        <label for="image">Changer l'image:</label>
+                                        <input type="file" id="image" name="image" class="form-control" accept="image/*">
+                                    </div>
+                                    <input type="hidden" value="<?= $animaux["id"] ?? '' ?>" name="id">
+                                    <button class="btn btn-primary affichage update-btn">Envoyer</button>
+                                </div>
                             </div>
+                        </div>
+                    </form>
+                </section>
+            </main>
 
-                            <!--NE SURTOUT PAS OUBLIER DE RAJOUTER L'id POUR BIEN ENVOYER LA REQUÊTE -->
-                            <input type="hidden" value="<?= $animaux["id"]?>" name="id">
-
-                            <button class="btn btn-primary affichage update-btn">Envoyer</button>
-                        </form>
-                    </section>
+            <main class="col-6">
+                <section class="update-box">
+                    <h1 class="update-title">Modèle actuel</h1>
+                    <?php if (isset($animaux) && $animaux): ?>
+                        <div class="current-model">
+                            <p><strong>Nom:</strong> <?= htmlspecialchars($animaux['name'] ?? '') ?></p>
+                            <p><strong>Description:</strong> <?= htmlspecialchars($animaux['content'] ?? '') ?></p>
+                            <p><strong>Catégorie:</strong> <?= htmlspecialchars($animaux['category'] ?? '') ?></p>
+                            <p><strong>Prix:</strong> <?= htmlspecialchars($animaux['price'] ?? '') ?></p>
+                            <p><strong>Promotion:</strong> <?= isset($animaux['discount']) && $animaux['discount'] ? 'Oui' : 'Non' ?></p>
+                        </div>
+                    <?php else: ?>
+                        <p>Aucun animal trouvé pour cet ID.</p>
+                    <?php endif; ?>
+                </section>
             </main>
         </div>
     </main>
 
-    <?php
-    require_once("./template/footer.php");
-    ?>
+    <script src="/js/script.js"></script>
+    <?php require_once("./template/footer.php"); ?>
+</body>
+</html>

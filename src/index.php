@@ -28,6 +28,12 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <section class="intro">
         <?php require_once("./template/header.php"); ?>
+        <div >
+            <a href="/happyfriends.php"><img class="happy-box" src="/img/happytreefriends/happytreefriends.png" alt=""></a>
+        </div>
+        <div >
+            <a href="/happyfriends.php"><img class="stickernew" src="/img/icons/stickerNew.png" alt="stickernew"></a>
+        </div>
 
         <article class="text-intro">
             <div>
@@ -40,15 +46,21 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <section class="category-box">
+    <a href="domestiques.php" class="category-link">
         <div class="little-box category-1">
-            <p>Animaux domestiques</p>
+            <p class="category-text">Animaux domestiques</p>
         </div>
+    </a>
+    <a href="securites.php" class="category-link">
         <div class="little-box category-2">
-            <p>Animaux de sécurité</p>
+            <p class="category-text">Animaux de sécurité</p>
         </div>
+    </a>
+    <a href="dangereux.php" class="category-link">
         <div class="little-box category-3">
-            <p>Animaux PRESQUE <br> adoptables</p>
+            <p class="category-text">Animaux dangereux</p>
         </div>
+    </a>
     </section>
 
     <section>
@@ -80,8 +92,13 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                             <img class="img-produce" src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
                             <div class="intro-produce"><a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>" class="txt-deco">
                                     <h4 class="text-h4"><?= htmlspecialchars($animal["name"]); ?></h4>
-                                    <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
+                                    <div class="txt-limit">
+                                        <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
+                                    </div>    
                                 </a>
+                                <div class="btn-panier-card">
+                                    <button class="panier"><a href="panier.php" class="panier-btn-deco">+Panier</a></button>
+                                </div>
                             </div>
                         </div>
                 <?php
