@@ -393,7 +393,32 @@ footer .container-reserve p a {
   width: 60%;
 }
 
+.btn-panier-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
 .panier {
+  font-family: robotoMed;
+  font-size: 18px;
+  text-decoration: none;
   border: 1px solid #e0a800;
-  margin: 10px 0 0 20%;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  width: 100px;
+  height: 30px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.panier-btn-deco{
+  color: white;
+  text-decoration: none;
+}
+.panier-btn-deco:hover{
+  color: rgb(187, 7, 7);
 }
