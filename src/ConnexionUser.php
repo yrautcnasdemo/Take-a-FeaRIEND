@@ -22,7 +22,8 @@ if (isset($_POST['loginUser'])) {
             $_SESSION['user'] = [
                 'email' => $user['email'],
                 'id' => $user['id'],
-                'prenom' => $user['prenom']
+                "nom" => $user['nom'],
+                "prenom" => $user['prenom']
             ];
             header('Location: index.php');
             exit(); // On arrete le script aprés la redirection
@@ -37,6 +38,7 @@ if (isset($_POST['loginUser'])) {
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,14 +47,15 @@ if (isset($_POST['loginUser'])) {
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fonts.css">
 </head>
+
 <body>
     <section class="full-box">
         <h1 class="font-take">Take a FeaRIEND</h1>
 
         <!-- Afficher les erreurs s'il y en a -->
-        <?php if (!empty($errors)): ?>
+        <?php if (!empty($errors)) : ?>
             <div class="alert alert-danger" role="alert">
-                <?php foreach ($errors as $error): ?>
+                <?php foreach ($errors as $error) : ?>
                     <p><?= htmlspecialchars($error) ?></p>
                 <?php endforeach; ?>
             </div>
@@ -79,4 +82,5 @@ if (isset($_POST['loginUser'])) {
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
+
 </html>
