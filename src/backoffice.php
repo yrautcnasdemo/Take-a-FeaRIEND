@@ -120,7 +120,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                         <label for="category">Catégorie:</label>
                         <select name="category" id="category" required>
                             <option value="animaux domestiques">Animaux domestiques</option>
-                            <option value="animaux de sécurités">Animaux de sécurités</option>
+                            <option value="animaux de sécurités">Animaux de sécurité</option>
                             <option value="animaux dangereux">Animaux dangereux</option>
                             <option value="Happy tree Friends">Happy tree Friends</option>
                         </select>

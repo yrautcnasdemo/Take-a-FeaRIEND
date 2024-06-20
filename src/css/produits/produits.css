@@ -278,7 +278,6 @@ nav.active .container-button-li li:hover {
 
 .panier {
   border: 1px solid #e0a800;
-  margin: 10px 0 0 20%;
   padding: 10px;
   background: none;
   color: white;
@@ -412,16 +411,20 @@ footer .container-reserve p a {
 }
 
 .panier {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: robotoMed;
-  font-size: 18px;
-  text-decoration: none;
-  border: 1px solid #e0a800;
-  border-radius: 8px;
-  background-color: #1e1e1e;
-  width: 100px;
-  height: 30px;
-  margin-top: 16px;
+  font-size: 16px;
   text-align: center;
+}
+.center-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px 0px 0px;
 }
 
 .panier-btn-deco{
