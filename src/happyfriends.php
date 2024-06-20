@@ -4,6 +4,47 @@ session_start();
 
 require_once("connect.php");
 
+if (isset($_POST['ajouter_panier'])) {
+    if (isset($_POST["animal_id"]) && isset($_SESSION["user"]["id"])) {
+        $animal_id = strip_tags($_POST["animal_id"]);
+        $user_id = $_SESSION["user"]["id"];
+
+        $sql = "SELECT * FROM panier WHERE user_id = :user_id AND animal_id = :animal_id ";
+        $query = $db->prepare($sql);
+
+        $query->bindValue(":user_id", $user_id);
+        $query->bindValue(":animal_id", $animal_id);
+
+        $query->execute();
+
+        $panier = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($panier)) {
+            // On vérifie si le panier contient déjà un article similaire
+            $quantite = $panier["quantity"];
+            $quantite++;
+            $panier_id = $panier['id'];
+
+            $sql = "UPDATE panier SET quantity = :quantity WHERE id = :panier_id";
+            $query = $db->prepare($sql);
+
+            $query->bindValue(":quantity", $quantite);
+            $query->bindValue(":panier_id", $panier_id);
+
+            $query->execute();
+        } else {
+            // Le panier ne contient pas d'article similaire
+            $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, 1)";
+            $query = $db->prepare($sql);
+
+            $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+            $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+
+            $query->execute();
+        }
+    }
+}
+
 $sql = "SELECT * FROM animaux WHERE category = 'Happy tree Friends'";
 
 $query = $db->prepare($sql);
@@ -38,102 +79,36 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
             <div class="container-domestique">
                 <div class="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/cub.png" alt="Cub">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Cub</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/cuddles.png" alt="Cuddles">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Cuddles</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/flaky.png" alt="Flaky">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Flaky</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/lumpy.png" alt="Lumpy">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Lumpy</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/nutty.png" alt="Nutty">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Nutty</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="carousel-item">
-                            <article class="container-cards">
-                                <figure>
-                                    <img src="./img/happytreefriends/petunia.png" alt="Petunia">
-                                    <figcaption>
-                                        <div class="intro-card"><a href="detail.php">
-                                                <h3>Petunia</h3>
-                                                <p>
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis rerum laudantium, ad deserunt quibusdam corrupti aut, recusandae alias dolores ex expedita quaerat a in et.
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
+                        <?php
+                        // Boucle foreach pour afficher les animaux de la BDD
+                        foreach ($animals as $animal) {
+                            if (!empty($animal['images'])) {
+                                $imagePath = $animal['images'];
+                            } else {
+                                $imagePath = 'img/upload_animaux/nointernet.jpg';
+                            } ?>
+
+                            <div class="carousel-item">
+                                <article class="container-cards">
+                                    <figure>
+                                        <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
+                                        <figcaption>
+                                            <div class="intro-card"><a href="detail.php">
+                                                    <h3><?php echo $animal['name']; ?></h3>
+                                                    <p>
+                                                        <?php echo $animal['content']; ?>
+                                                    </p>
+                                                </a>
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
+                                                    <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
+                                                </form>
+                                            </div>
+                                        </figcaption>
+                                    </figure>
+                                </article>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
