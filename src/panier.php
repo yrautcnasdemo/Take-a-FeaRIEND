@@ -81,7 +81,7 @@ if (isset($_SESSION['user']['id'])) {
         <?php require_once("./template/header.php") ?>
         <section class="image-illus"></section>
         <section class="produits">
-            <h2>Votre panier <?= $_SESSION['user']["nom"] . " " . $_SESSION['user']["prenom"]; ?></h2>
+            <h2>Panier de <?= $_SESSION['user']["nom"] . " " . $_SESSION['user']["prenom"]; ?></h2>
             <div class="container-articles">
                 <?php
                 // Boucle foreach pour afficher le panier
@@ -177,7 +177,7 @@ if (isset($_SESSION['user']['id'])) {
                     $prix = $animal["price"];
                 }
 
-                $total += $prix * $panier["quantity"]; // Ajout au total
+                $total += $prix * $panier["quantity"]; // On ajoute au total
             }
             ?>
 
