@@ -137,7 +137,10 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
                                         <h3><?= htmlspecialchars($animal["name"]); ?></h3>
                                         <p><?= htmlspecialchars($animal["content"]); ?></p>
                                     </a>
-                                    <button class="panier">Ajouter au panier</button>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
+                                        <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
+                                    </form>
                                 </div>
                             </figcaption>
                         </figure>

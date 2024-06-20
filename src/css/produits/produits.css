@@ -276,9 +276,13 @@ nav.active .container-button-li li:hover {
   color: #1e1e1e;
 }
 
-form .panier {
+.panier {
   border: 1px solid #e0a800;
   margin: 10px 0 0 20%;
+  padding: 10px;
+  background: none;
+  color: white;
+  cursor: pointer;
 }
 
 /* CONTAINER NONE EN MOBILE */

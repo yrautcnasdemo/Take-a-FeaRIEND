@@ -119,9 +119,11 @@ if (isset($_SESSION['user']['id'])) {
                                 <h3><?= htmlspecialchars($animal['name']) ?></h3>
                                 <?php
                                 if ($animal['discount'] == 1) { ?>
-                                    <p>Ancien prix : <?php echo $prix; ?>€/pièce</p>
-                                    <p>Nouveau prix en promo : </p>
-                                    <p class="price" data-unitPrice="<?php echo $prixpromo; ?>"></p>
+                                    <div class="container-price">
+                                        <p class="ancien"><?php echo $prix; ?>€/pièce</p>
+                                        <p class="promotion"></p>
+                                        <p class="price" data-unitPrice="<?php echo $prixpromo; ?>"></p>
+                                    </div>
                                 <?php } else { ?>
                                     <p class="price" data-unitPrice="<?php echo $animal["price"]; ?>"></p>
                                 <?php } ?>
@@ -148,6 +150,45 @@ if (isset($_SESSION['user']['id'])) {
                 <?php
                 }
                 ?>
+            </div>
+        </section>
+        <section class="total">
+            <?php
+            $total = 0; // Initialisation de la variable pour le total
+
+            // Boucle foreach pour afficher le panier
+            foreach ($panier_item as $panier) {
+                $animal_id = $panier["animal_id"];
+
+                $sql = "SELECT a.*
+            FROM animaux a
+            WHERE id = :animal_id";
+
+                $query = $db->prepare($sql);
+                $query->bindValue(":animal_id", $animal_id);
+                $query->execute();
+                $animal = $query->fetch(PDO::FETCH_ASSOC);
+
+                // Calcul du total en fonction du prix de l'animal et de la quantité
+                if ($animal['discount'] == 1) {
+                    $prixpromo = $animal["price"] / 1.10;
+                    $prix = $animal["price"];
+                } else {
+                    $prix = $animal["price"];
+                }
+
+                $total += $prix * $panier["quantity"]; // Ajout au total
+            }
+            ?>
+
+            <section class="paiement">
+                <div class="total">
+                    Total à payer : <?= $total ?>€
+                </div>
+                <form action="traitement_paiement.php" method="POST">
+                    <button type="submit" name="payer">Payer</button>
+                </form>
+            </section>
 
             </div>
         </section>

@@ -1,10 +1,5 @@
 /* TABLET */
-
 @media all and (min-width: 768px) and (max-width: 1023px) {
-  .container-articles {
-    display: flex;
-  }
-
   .container-articles {
     display: flex;
     gap: 40px;
@@ -12,11 +7,17 @@
     justify-content: center;
   }
 
-  .produits-articles figure {
-    width: 100%;
+  .produits-articles {
+    width: calc(33.333% - 40px); /* Trois articles par ligne */
+    height: 450px;
   }
 
-  .produits-articles figcaption {
+  figure {
+    width: 100%;
+    height: 100%;
+  }
+
+  figcaption {
     width: 100%;
   }
 }
@@ -25,43 +26,23 @@
 @media all and (min-width: 1024px) {
   .container-articles {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .container-articles {
-    display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
   }
 
+  .produits-articles {
+    width: calc(25% - 40px); /* Quatre articles par ligne */
+    height: 450px;
+  }
+
   figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
+    height: 100%;
   }
 
   figcaption {
     width: 100%;
-  }
-
-  .produits-articles {
-    width: 20%;
-  }
-
-  .produits-articles figure {
-    width: 100%;
-  }
-
-  .produits-articles figcaption {
-    width: 100%;
-  }
-
-  .container-figcaption {
-    display: flex;
-    justify-content: space-around;
   }
 }
