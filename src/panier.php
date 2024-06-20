@@ -102,13 +102,31 @@ if (isset($_SESSION['user']['id'])) {
                     } else {
                         $imagePath = 'img/upload_animaux/nointernet.jpg';
                     }
+
+                    if ($animal['discount'] == 1) {
+                        $prixpromo = $animal["price"] / 1.10;
+                        $prix = $animal["price"];
+                    } else {
+                        $prix = $animal["price"];
+                    }
                 ?>
                     <article class="produits-articles">
                         <figure>
                             <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
                             <figcaption>
                                 <h3><?= htmlspecialchars($animal['name']) ?></h3>
-                                <p class="price" data-unitPrice="<?php echo $animal["price"]; ?>">PRIX TOTAL QUI S'AFFICHE PAR JS</p>
+                                <?php
+                                if ($animal['discount'] == 1) { ?>
+                                    <p>Ancien prix : <?php echo $prix; ?>€/pièce</p>
+                                    <p>Nouveau prix en promo : </p>
+                                    <p class="price" data-unitPrice="<?php echo $prixpromo; ?>"></p>
+                                <?php } else { ?>
+                                    <p class="price" data-unitPrice="<?php echo $animal["price"]; ?>"></p>
+                                <?php } ?>
+
+
+
+
                                 <div class="container-figcaption">
                                     <div class="figcaption-left">
                                         <p class="left-p">Quantité</p>
