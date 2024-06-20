@@ -94,12 +94,14 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
                                         <img src="<?= htmlspecialchars($imagePath); ?>" alt="Image de <?= htmlspecialchars($animal['name']); ?>">
                                         <figcaption>
                                             <div class="intro-card"><a href="detail.php">
-                                                    <h3><?php echo $animal['name']; ?></h3>
-                                                    <p>
-                                                        <?php echo $animal['content']; ?>
-                                                    </p>
+                                                    <h3 class="text-h4"><?php echo $animal['name']; ?></h3>
+                                                    <div class="txt-limit">
+                                                        <p class="text-p">
+                                                            <?php echo $animal['content']; ?>
+                                                        </p>
+                                                    </div>
                                                 </a>
-                                                <form action="" method="post">
+                                                <form action="" method="post" class="center-btn">
                                                     <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
                                                     <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
                                                 </form>
@@ -137,14 +139,15 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
                             <figcaption>
                                 <div class="intro-card">
                                     <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>">
-                                        <h3><?= htmlspecialchars($animal["name"]); ?></h3>
-                                        <p><?= htmlspecialchars($animal["content"]); ?></p>
+                                        <h3 class="text-h4"><?= htmlspecialchars($animal["name"]); ?></h3>
+                                        <div class="txt-limit">
+                                            <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
+                                        </div>
                                     </a>
-                                    <form action="" method="post">
+                                    <form action="" method="post" class="center-btn">
                                         <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
                                         <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
                                     </form>
-
                                 </div>
                             </figcaption>
                         </figure>

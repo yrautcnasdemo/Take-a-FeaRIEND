@@ -35,7 +35,7 @@
 
         <div class="card-produce">
             <img class="img-produce" src="/img/securites/105547.png" alt="Animaux de sécurité">
-            <div class="intro-produce"><a href="domestiques.php" class="txt-deco">
+            <div class="intro-produce"><a href="securites.php" class="txt-deco">
                     <h4 class="text-h4">Animaux de sécurité</h4>
                     <p class="text-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ab perspiciatis earum molestiae illum omnis optio hic ex modi eaque cumque a, incidunt sit saepe repellendus laudantium cum beatae error!
                     Dignissimos natus minus harum veritatis, quos vitae aspernatur, ab laudantium quis repudiandae dicta saepe hic inventore, quod ipsam esse deleniti perspiciatis corrupti maiores. 
@@ -45,7 +45,7 @@
 
         <div class="card-produce">
             <img class="img-produce" src="/img/dangereux/105856.png" alt="Animaux PRESQUE adoptables">
-            <div class="intro-produce"><a href="domestiques.php" class="txt-deco">
+            <div class="intro-produce"><a href="dangereux.php" class="txt-deco">
                     <h4 class="text-h4">Animaux PRESQUE adoptables</h4>
                     <p class="text-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ab perspiciatis earum molestiae illum omnis optio hic ex modi eaque cumque a, incidunt sit saepe repellendus laudantium cum beatae error!
                     Dignissimos natus minus harum veritatis, quos vitae aspernatur, ab laudantium quis repudiandae dicta saepe hic inventore, quod ipsam esse deleniti perspiciatis corrupti maiores. 
@@ -55,7 +55,7 @@
         
         <div class="card-produce">
             <img class="img-produce" src="/img/happytreefriends/happytreefriends.png" alt="Happy tree friends">
-            <div class="intro-produce"><a href="domestiques.php" class="txt-deco">
+            <div class="intro-produce"><a href="happyfriends.php" class="txt-deco">
                     <h4 class="text-h4">Les Happy tree friends</h4>
                     <p class="text-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ab perspiciatis earum molestiae illum omnis optio hic ex modi eaque cumque a, incidunt sit saepe repellendus laudantium cum beatae error!
                     Dignissimos natus minus harum veritatis, quos vitae aspernatur, ab laudantium quis repudiandae dicta saepe hic inventore, quod ipsam esse deleniti perspiciatis corrupti maiores. 

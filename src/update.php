@@ -147,7 +147,7 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                                     <label for="category">Catégorie:</label>
                                     <select name="category" id="category" required>
                                         <option value="animaux domestiques" <?= ($animaux['category'] ?? '') === 'animaux domestiques' ? 'selected' : '' ?>>Animaux domestiques</option>
-                                        <option value="animaux de sécurité" <?= ($animaux['category'] ?? '') === 'animaux de sécurité' ? 'selected' : '' ?>>Animaux de sécurité</option>
+                                        <option value="animaux de sécurités" <?= ($animaux['category'] ?? '') === 'animaux de sécurités' ? 'selected' : '' ?>>Animaux de sécurité</option>
                                         <option value="animaux dangereux" <?= ($animaux['category'] ?? '') === 'animaux dangereux' ? 'selected' : '' ?>>Animaux dangereux</option>
                                         <option value="Happy tree Friends" <?= ($animaux['category'] ?? '') === 'Happy tree Friends' ? 'selected' : '' ?>>Happy tree Friends</option>
                                     </select>

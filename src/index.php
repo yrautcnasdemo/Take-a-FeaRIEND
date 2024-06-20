@@ -96,9 +96,10 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                                         <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
                                     </div>    
                                 </a>
-                                <div class="btn-panier-card">
-                                    <button class="panier"><a href="panier.php" class="panier-btn-deco">+Panier</a></button>
-                                </div>
+                                <form action="" method="post" class="center-btn">
+                                    <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">
+                                    <button type="submit" name="ajouter_panier" class="panier" value="1">Ajouter au panier</button>
+                                </form>
                             </div>
                         </div>
                 <?php
