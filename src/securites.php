@@ -5,9 +5,7 @@ session_start();
 require_once("connect.php");
 
 if (isset($_POST['ajouter_panier'])) {
-    echo "a";
     if (isset($_POST["animal_id"]) && isset($_SESSION["user"]["id"])) {
-        echo "b";
         $animal_id = strip_tags($_POST["animal_id"]);
         $user_id = $_SESSION["user"]["id"];
 
@@ -18,10 +16,8 @@ if (isset($_POST['ajouter_panier'])) {
         $query->bindValue(":animal_id", $animal_id);
 
         $query->execute();
-        echo "1";
 
         $panier = $query->fetch(PDO::FETCH_ASSOC);
-        echo "2";
 
         if (!empty($panier)) {
             // On vérifie si le panier contient déjà un article similaire
@@ -31,13 +27,11 @@ if (isset($_POST['ajouter_panier'])) {
 
             $sql = "UPDATE panier SET quantity = :quantity WHERE id = :panier_id";
             $query = $db->prepare($sql);
-            echo "PANIER ID " . $panier_id;
 
             $query->bindValue(":quantity", $quantite);
             $query->bindValue(":panier_id", $panier_id);
 
             $query->execute();
-            echo "marche";
         } else {
             // Le panier ne contient pas d'article similaire
             $sql = "INSERT INTO panier (user_id, animal_id, quantity) VALUES (:user_id, :animal_id, 1)";

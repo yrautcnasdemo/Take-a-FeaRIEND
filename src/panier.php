@@ -9,7 +9,7 @@ if (isset($_SESSION['user']['id'])) {
 
     // Requête pour récupérer les articles dans le panier de l'utilisateur
     $sql = "SELECT p.*
-            FROM panier p
+            FROM panier p 
             WHERE user_id = :user_id";
 
     $query = $db->prepare($sql);
@@ -47,7 +47,7 @@ if (isset($_SESSION['user']['id'])) {
 } else {
     // Débogage temporaire pour afficher le contenu de la session
     echo "Session user_id non définie. Contenu de la session : ";
-    var_dump($_SESSION);
+
 
     // Redirection vers la page de connexion si 'user_id' n'est pas défini
     header("Location: ConnexionUser.php");
