@@ -73,7 +73,7 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <?php require_once("./template/header.php") ?>
-        <section class="image-illustration"></section>
+        <section class="image-illustration-happy"></section>
         <section class="cards-section">
             <h2>Happy Tree Friends</h2>
             <div class="container-domestique">
