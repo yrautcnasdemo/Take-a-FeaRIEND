@@ -85,7 +85,6 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
 
 
 
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -135,18 +134,20 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
                 </div>
                 <div class="right-column">
                     <div class="upload-box">
-                        <label for="image" class="upload-btn">Upload</label>
-                        <input type="file" name="image" id="image" accept="image/*" style="display: none;">
+                        <label id="uploadLabel" for="image">Uploader une photo</label>
+                        <img id="previewImage" src="#" alt="Aperçu de l'image" style="max-width: 100%; display: none;">
                     </div>
+                    <label for="image" class="upload-btn">Upload</label>
+                    <input type="file" name="image" id="image" accept="image/*" style="display: none;">
                 </div>
-                <button type="submit" value="Enregistrer" class="upload-btn" name="uploadAnimal">
+                <button type="submit" value="Enregistrer" class="valide-btn-bo" name="uploadAnimal">
                     <img src="/img/icons/green-add-button-12023.png" alt="">
                 </button>
             </form>
         </div>
         <div class="Admin-title">
-            <h2>Bienvenue</h2>
-            <span>Administrateur</span>
+            <h2>Bienvenue Administrateur</h2>
+            <span><?= $_SESSION['user']['prenom']; ?></span>
         </div>
     </section>
     <section>

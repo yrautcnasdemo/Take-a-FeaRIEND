@@ -60,7 +60,11 @@
                             <p class="detail-description">Description: </p>
                             <p class="detail-description"><?= $animal['content'] ?></p>
                             <p class="detail-price">Prix: <?= $animal['price'] ?>€</p>
+                        <?php if (isset($_SESSION['user']['email']) && ($_SESSION['user']['email'] == 'Yrautcnas@msn.com' || $_SESSION['user']['email'] == 'a@b.c')) { ?>
+                            <button type="button" class="btn btn-outline-warning btn-buy"><a class="admin-link" href="backoffice.php">Modifier</a></button>
+                        <?php } else { ?>
                             <button type="button" class="btn btn-outline-warning btn-buy">+ Panier</button>
+                        <?php } ?>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         </div>
                     </div>

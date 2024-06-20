@@ -1,49 +1,54 @@
 <?php 
-    session_start();
-    
-    
-    if($_POST){
-        if(isset($_POST['id']) && !empty($_POST['id']) //pour update.php on rajoute l'id
+session_start();
+
+if ($_POST){
+    if (isset($_POST['id']) && !empty($_POST['id'])
         && isset($_POST['name']) && !empty($_POST['name'])
         && isset($_POST['content']) && !empty($_POST['content'])
         && isset($_POST['category']) && !empty($_POST['category'])
-        && isset($_POST['price']) && !empty($_POST['price'])
-        && isset($_POST['discount']) && !empty($_POST['discount'])){
+        && isset($_POST['price']) && !empty($_POST['price'])) {
         
         require_once('connect.php');
     
-        $id = strip_tags($_POST["id"]); //pour update.php on rajoute l'id
+        $id = strip_tags($_POST["id"]);
         $name = strip_tags($_POST["name"]);
         $content = strip_tags($_POST["content"]);
         $category = strip_tags($_POST["category"]);
         $price = strip_tags($_POST["price"]);
-        $discount = strip_tags($_POST["discount"]);
-    
-        //on change le INSERT INTO de ajout.php en UPDATE et on rajoute SET pour changer les parametres
+        
+        // Vérification de la promotion pour qu'elle soit bien prise en compte si la case n'est pas coché
+        if (isset($_POST['discount'])) {
+            $discount = 1; // La promotion est activée
+        } else {
+            $discount = 0; // La promotion n'est pas activée
+        }
+
+        // Modification de l'animal dans la base de données
         $sql = 'UPDATE animaux SET `name`=:name, `content`=:content, `category`=:category, `price`=:price, 
         `discount`=:discount WHERE `id`=:id;';
     
         $query = $db->prepare($sql);
     
-        $query->bindValue(":id", $id, PDO::PARAM_INT);//On rajoute la valeur bindValue id 
+        $query->bindValue(":id", $id, PDO::PARAM_INT);
         $query->bindValue(":name", $name, PDO::PARAM_STR);
         $query->bindValue(":content", $content, PDO::PARAM_STR);
         $query->bindValue(":category", $category, PDO::PARAM_STR);
         $query->bindValue(":price", $price, PDO::PARAM_INT);
-        $query->bindValue(":discount", $discount);
+        $query->bindValue(":discount", $discount, PDO::PARAM_INT); // Assurez-vous de définir le type de données correctement
     
         $query->execute();
     
         $_SESSION['message'] = "Fiche animal modifiée";
-        require_once('DeconnexionUser.php');
-        header('Location: index.php');
+        header("Location: detail.php?id=$id");
+        exit();
     
-        }else{
-            //sinon envoyer le message d'erreur formulaire complet
-            $_SESSION['erreur'] = "Le formulaire est incomplet";
-        }
+    } else {
+        $_SESSION['erreur'] = "Le formulaire est incomplet";
+        header('Location: update.php?id=' . $_POST['id']);
+        exit();
     }
-    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "ajout.php"
+}
+    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "ajout.php" du projet CRUD
     
     
     // ICI COMMENCE LA REPRISE D'UNE PARTIE DE "details.php" (commentaire néttoyés pour plus de clareté, voir details.php pour avoir la totalité des commentaires)
@@ -64,14 +69,14 @@
     
         if(!$animaux){
             $_SESSION['erreur'] = "Cet id n'existe pas, votre vie est un echec...";
-            header('Location: index.php');
+            // header('Location: index.php');
         }
     
     }else{
         $_SESSION["erreur"] = "URL invalide";
-        header("Location: index.php");
+        // header("Location: index.php");
     }
-    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "details.php" 
+    // ICI TERMINE LA REPRISE D'UNE PARTIE DE "detail.php" 
     
     ?>
 
@@ -91,39 +96,51 @@
 </head>
 
 <body class="detail-body">
+    <?php require_once("./template/header.php"); ?>
     <main class="container">
         <div class="row">
-            <section class="col-12">
-
-                <h1>Modifier un animal</h1>
-                        <form method="post">
-                            <div class="form-group">
-                                <label for="name">Nom</label>
+            <main class="col-12">
+                <section class="update-box">
+                        <h1 class="update-title">Modifier un animal</h1>
+                        <form class="update-form" method="post">
+                            <div class="form-group update-name">
+                                <label for="name">Nom:</label>
                                 <input type="text" id="name" name="name" class="form-control" value="<?= $animaux['name'] ?>">
                             </div>
                             <div class="form-group">
-                                <label for="content">Description</label>
-                                <input type="text" id="content" name="content" class="form-control" value="<?= $animaux['content']?>">
+                                <label for="content">Description:</label>
+                                <textarea id="content" name="content" class="form-control"><?= $animaux['content'] ?></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="category">category</label>
-                                <input type="text" id="category" name="category" class="form-control" value="<?= $animaux['category']?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Prix</label>
-                                <input type="text" id="price" name="price" class="form-control" value="<?= $animaux['price']?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="discount">Promotion</label>
-                                <input type="text" id="discount" name="discount" class="form-control" value="<?= $animaux['discount']?>">
+
+                            <div class="uptade-row">
+                                <div class="form-group">
+                                    <label for="category">Catégorie:</label>
+                                    <select name="category" id="category" value="<?= $animaux['category']?>" required>
+                                        <option value="animaux domestiques">Animaux domestiques</option>
+                                        <option value="animaux de sécurités">Animaux de sécurités</option>
+                                        <option value="animaux dangereux">Animaux dangereux</option>
+                                        <option value="Happy tree Friends">Happy tree Friends</option>
+                                    </select>
+                                </div>
+                                <div class="update-price-row form-group">
+                                    <label for="price">Prix:</label>
+                                    <input type="text" id="price" name="price" class="update-price form-control" value="<?= $animaux['price']?>">
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <label for="discount">Promotion:</label>
+                                        <input type="checkbox" name="discount" id="discount" value="<?= $animaux['discount']?>" class="form-check-input">
+                                    </div>
+                                </div>
                             </div>
 
                             <!--NE SURTOUT PAS OUBLIER DE RAJOUTER L'id POUR BIEN ENVOYER LA REQUÊTE -->
                             <input type="hidden" value="<?= $animaux["id"]?>" name="id">
 
-                            <button class="btn btn-primary affichage">Envoyer</button>
+                            <button class="btn btn-primary affichage update-btn">Envoyer</button>
                         </form>
-            </section>
+                    </section>
+            </main>
         </div>
     </main>
 

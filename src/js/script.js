@@ -81,3 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.getElementById('image').addEventListener('change', function() {
+  var reader = new FileReader();
+
+  reader.onload = function(e) {
+      document.getElementById('previewImage').setAttribute('src', e.target.result);
+      document.getElementById('previewImage').style.display = 'block';
+      document.getElementById('uploadLabel').style.display = 'none'; // Masque le label "Uploader une photo"
+  };
+
+  reader.readAsDataURL(this.files[0]);
+});
