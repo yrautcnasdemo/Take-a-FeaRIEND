@@ -81,6 +81,8 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
     var_dump($_POST);
     die("Erreur veuillez réessayer");
 }
+
+
 ?>
 
 

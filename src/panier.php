@@ -53,7 +53,9 @@ if (isset($_SESSION['user']['id'])) {
     header("Location: ConnexionUser.php");
     exit();
 }
+
 ?>
+
 
 
 
@@ -135,7 +137,9 @@ if (isset($_SESSION['user']['id'])) {
                                         <button class="increase">+</button>
                                     </div>
                                     <div class="figcaption-right">
-                                        <button class="delete">Supprimer</button>
+                                        <button class="delete"><a href="delete_panier.php?id=<?= $panier["id"] ?>">Supprimer</a></button>
+
+
                                     </div>
                                 </div>
                             </figcaption>
