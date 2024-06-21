@@ -23,7 +23,8 @@ if (isset($_POST['loginUser'])) {
                 'email' => $user['email'],
                 'id' => $user['id'],
                 "nom" => $user['nom'],
-                "prenom" => $user['prenom']
+                "prenom" => $user['prenom'],
+                "roles" => $user['roles']
             ];
             header('Location: index.php');
             exit(); // On arrete le script aprés la redirection

@@ -15,7 +15,7 @@
                         <button type="button" class="Login"><a class="login-link" href="ConnexionUser.php">Login</a></button>
                     </div>
                 <?php } else {
-                    if (isset($_SESSION['user']['email']) && ($_SESSION['user']['email'] == 'Yrautcnas@msn.com' || $_SESSION['user']['email'] == 'a@b.c')) { ?>
+                    if (isset($_SESSION['user']['roles']) && ($_SESSION['user']['roles'] == 'administrateur')) { ?>
                         <div class="container-button-li">
                             <button type="button" class="panierheader"><a class="admin-link" href="backoffice.php">Admin</a></button>
                             <button type="button" class="Logout"><a class="logout-link" href="DeconnexionUser.php">Logout</a></button>

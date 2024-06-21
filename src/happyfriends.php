@@ -75,7 +75,7 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
         <?php require_once("./template/header.php") ?>
         <section class="image-illustration-happy"></section>
         <section class="cards-section">
-            <h2>Happy Tree Friends</h2>
+            <h2 class="main-title-cat">Happy Tree Friends</h2>
             <div class="container-domestique">
                 <div class="carousel">
                     <div class="carousel-inner">
@@ -118,7 +118,7 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
         </section>
 
         <section class="desktop-flex">
-            <h2>Happy Tree Friends</h2>
+            <h2 class="main-title-cat">Happy Tree Friends</h2>
             <div class="container-flex">
                 <?php
                 // Boucle foreach pour afficher les animaux de la BDD

@@ -683,21 +683,63 @@ textarea::placeholder {
 }
 
 /*////////////////////////ABOUT /////////////////////////////*/
-.about-section {
-  margin-top: 50px;
-}
-.about-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-.about-description{
+.about-page{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+
+
+.card-txt-about-title{
+  color: rgb(236, 63, 0);
+  font-family: roadRage;
+  font-size: 30px;
+  text-decoration: underline;
+}
+.card-txt-about{
+  text-align: start;
+  font-family: robotoMed;
+  font-size: 18px;
+}
+
+
+.card-stat{
+  display: flex;
+  flex-direction: column;
+}
+.about-card-compil{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card-txt-about{
+  display: flex;
+  align-items: start;
+  text-align: start;
+}
+.about-img-border{
+  border: 3px solid black;
+  border-radius: 15px 15px 0 0;
+}
+.about-duo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+.about-description{
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #e0a800;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -40px;
+  width: 40%;
 }
 .about-main-title {
   font-family: roadRage;
@@ -715,6 +757,11 @@ textarea::placeholder {
   font-family: roadRage;
   font-size: 80px;
   color: rgb(151, 0, 0);
+}
+.about-stat-size {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
 }
 .about-stat {
   color: orangered;
