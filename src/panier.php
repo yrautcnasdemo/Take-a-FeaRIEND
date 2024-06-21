@@ -186,7 +186,7 @@ if (isset($_SESSION['user']['id'])) {
                     Total à payer : <?= $total ?>€
                 </div>
                 <form action="traitement_paiement.php" method="POST">
-                    <button type="submit" name="payer">Payer</button>
+                    <button type="submit" name="payer" id="paypal-button-container">Payer</button>
                 </form>
             </section>
 
