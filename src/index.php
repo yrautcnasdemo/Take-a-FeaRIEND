@@ -28,10 +28,10 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <section class="intro">
         <?php require_once("./template/header.php"); ?>
-        <div >
+        <div>
             <a href="/happyfriends.php"><img class="happy-box" src="/img/happytreefriends/happytreefriends.png" alt=""></a>
         </div>
-        <div >
+        <div>
             <a href="/happyfriends.php"><img class="stickernew" src="/img/icons/stickerNew.png" alt="stickernew"></a>
         </div>
 
@@ -39,28 +39,28 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
             <div>
                 <h1 class="title">Take a FeaRIEND</h1>
                 <p class="text-content">Bienvenue sur <span class="sub-title">Take a FeaRIEND</span>
-                    Votre boutique en ligne pour adopter des Créatures aussi étonnantes qu’amicales.</p>
+                    Votre boutique en ligne pour adopter des Créatures aussi étonnantes qu'amicales.</p>
                 <p class="text-content2">*Nous déclinons toutes reponsabilitées en cas de mort brutale</p>
             </div>
         </article>
     </section>
 
     <section class="category-box">
-    <a href="domestiques.php" class="category-link">
-        <div class="little-box category-1">
-            <p class="category-text">Animaux domestiques</p>
-        </div>
-    </a>
-    <a href="securites.php" class="category-link">
-        <div class="little-box category-2">
-            <p class="category-text">Animaux de sécurité</p>
-        </div>
-    </a>
-    <a href="dangereux.php" class="category-link">
-        <div class="little-box category-3">
-            <p class="category-text">Animaux dangereux</p>
-        </div>
-    </a>
+        <a href="domestiques.php" class="category-link">
+            <div class="little-box category-1">
+                <p class="category-text">Animaux domestiques</p>
+            </div>
+        </a>
+        <a href="securites.php" class="category-link">
+            <div class="little-box category-2">
+                <p class="category-text">Animaux de sécurité</p>
+            </div>
+        </a>
+        <a href="dangereux.php" class="category-link">
+            <div class="little-box category-3">
+                <p class="category-text">Animaux dangereux</p>
+            </div>
+        </a>
     </section>
 
     <section>
@@ -94,7 +94,7 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                                     <h4 class="text-h4"><?= htmlspecialchars($animal["name"]); ?></h4>
                                     <div class="txt-limit">
                                         <p class="text-p"><?= htmlspecialchars($animal["content"]); ?></p>
-                                    </div>    
+                                    </div>
                                 </a>
                                 <form action="" method="post" class="center-btn">
                                     <input type="hidden" name="animal_id" value="<?= htmlspecialchars($animal['id']); ?>">

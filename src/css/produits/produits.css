@@ -20,15 +20,6 @@
   font-family: "robotoMed";
 }
 
-.logout-link {
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  background: #1e1e1e;
-  color: #f5f5f5;
-  font-family: "robotoMed";
-}
-
 /* HEADER */
 
 header {
@@ -445,10 +436,10 @@ footer .container-reserve p a {
   margin: 15px 0px 0px 0px;
 }
 
-.panier-btn-deco{
+.panier-btn-deco {
   color: white;
   text-decoration: none;
 }
-.panier-btn-deco:hover{
+.panier-btn-deco:hover {
   color: rgb(187, 7, 7);
 }
