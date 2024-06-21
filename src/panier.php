@@ -73,6 +73,7 @@ if (isset($_SESSION['user']['id'])) {
     <link rel="stylesheet" href="./css/produits/produits.css">
     <link rel="stylesheet" href="./css/produits/produits-responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_SANDBOX_CLIENT_ID&currency=USD"></script>
     <title>Panier</title>
 </head>
 
