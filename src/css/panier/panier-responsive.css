@@ -2,13 +2,13 @@
 @media all and (min-width: 768px) and (max-width: 1023px) {
   .container-articles {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
   }
 
   .produits-articles {
-    width: calc(33.333% - 40px); /* Trois articles par ligne */
+    width: calc(50% - 20px); /* Deux articles par ligne */
     height: 450px;
   }
 
@@ -33,7 +33,7 @@
   }
 
   .produits-articles {
-    width: calc(25% - 40px); /* Quatre articles par ligne */
+    width: calc(25% - 20px); /* Quatre articles par ligne */
     height: 450px;
   }
 
