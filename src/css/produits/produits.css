@@ -157,6 +157,24 @@ nav.active .container-button-li li:hover {
   background-position: 75% 75%;
   height: 80vh;
 }
+.image-illustration-secu {
+  background: url("../../img/securites/wp6730022.jpg") fixed;
+  background-size: cover;
+  background-position: 5% 25%;
+  height: 80vh;
+}
+.image-illustration-dng {
+  background: url("../../img/dangereux/banner-dng.jpg") fixed;
+  background-size: cover;
+  background-position: 75% 75%;
+  height: 80vh;
+}
+.image-illustration-happy {
+  background: url("../../img/happytreefriends/banner-happy.jpg") fixed;
+  background-size: cover;
+  background-position: 75% 75%;
+  height: 80vh;
+}
 
 /* CONTAINER CARDS */
 

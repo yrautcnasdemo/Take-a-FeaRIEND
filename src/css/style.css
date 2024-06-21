@@ -677,6 +677,11 @@ textarea::placeholder {
   color: rgb(151, 0, 0);
 }
 
+.main-title-cat {
+  font-family: roadRage;
+  color: rgb(187, 0, 0);
+}
+
 /*////////////////////////ABOUT /////////////////////////////*/
 .about-section {
   margin-top: 50px;
