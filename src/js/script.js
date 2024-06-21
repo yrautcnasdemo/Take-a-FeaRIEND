@@ -16,6 +16,32 @@ function toggleScrollTopButton() {
   }
 }
 
+// Sound Happy Tree Friends
+let sound = new Audio("../img/deal/HappyTreeFriends.mp3");
+
+document.addEventListener("DOMContentLoaded", function () {
+  let audio = document.getElementById("background-audio");
+
+  audio.addEventListener("canplaythrough", function () {
+    var playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(function () {
+          alert("ça marche");
+        })
+        .catch(function (error) {
+          var playButton = document.createElement("button");
+          playButton.innerText = "Play Audio";
+          document.body.appendChild(playButton);
+          playButton.addEventListener("click", function () {
+            audio.play();
+            playButton.style.display = "none"; // Masquer le bouton après lecture
+          });
+        });
+    }
+  });
+});
+
 // SLIDESLOW
 
 const carouselInner = document.querySelector(".carousel-inner");
