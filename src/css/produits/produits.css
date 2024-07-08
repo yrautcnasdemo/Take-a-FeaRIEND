@@ -136,7 +136,7 @@ nav.active ul {
 }
 
 nav.active .container-button-li {
-  padding-top: 25px;
+  padding: 15px 0px;
 }
 
 nav.active .container-button-li li:hover {
@@ -160,6 +160,23 @@ nav.active .container-button-li li:hover {
   background: url("../../img/domestiques/chaton.png") fixed;
   background-size: cover;
   background-position: 75% 75%;
+  height: 80vh;
+}
+.image-illustration-dng {
+  background: url("../../img/dangereux/banner-dng.jpg") fixed;
+  background-size: cover;
+  height: 80vh;
+}
+.image-illustration-secu {
+  background: url("../../img/securites/wp6730022.jpg") fixed;
+  background-size: cover;
+  background-position: top 30% right 0px;
+  height: 80vh;
+}
+.image-illustration-happy {
+  background: url("../../img/happytreefriends/banner-happy.jpg") fixed;
+  background-size: cover;
+  background-position: top 75% right 0px;
   height: 80vh;
 }
 

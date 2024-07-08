@@ -60,8 +60,20 @@ body {
   text-decoration: none;
   color: #ffffff;
 }
-/*END NavBAR*/
+.panierheader {
+  border: 1px solid #e0a800;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #1e1e1e;
+  color: #f5f5f5;
+  font-family: "robotoMed";
+}
 
+.panier-link {
+  font-size: 1rem;
+}
+/*END NavBAR*/
 /*START SECTION INTRO*/
 .intro {
   background-image: url(/img/Godzilla.png);
@@ -127,6 +139,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .little-box {
   padding: 20px;
@@ -206,8 +219,6 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin-right: 200px;
-  margin-left: 200px;
 }
 
 /*CARDS-PRODUCE*/
@@ -286,11 +297,14 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-image: url(/img/peakpx.jpg);
+  background-image: url(/img/The-Meg-2-15.jpg);
+  border-radius: 20px;
   background-size: cover;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  border: 2px solid rgb(37, 37, 37);
+  filter: drop-shadow(0 0 0.75rem rgba(8, 8, 8, 0.479));
 }
 .discount-pub {
   display: flex;
@@ -893,12 +907,14 @@ textarea::placeholder {
   .category-2 {
     background-image: url(/img/securites/105547.png);
     background-size: center;
-    background-position: bottom 0px right 0px;
   }
   .category-3 {
     background-image: url(/img/dangereux/105856.png);
     background-size: center;
-    background-position: bottom 0px right 0px;
+  }
+  .category-text {
+    position: relative;
+    bottom: 75px;
   }
 }
 
