@@ -18,14 +18,14 @@ if (!empty($_POST)) {
         //On se connecte a la BDD
         require_once("connect.php");
 
-        //On ajoute les vérifications : 
-        // ETAPE 1 : Vérification de l'existence de l'e-mail
+        //On ajoute les vérifications :
+        // ETAPE 1 : Vérification de l'existence de l'email dans la base de données
         $sql_mail = "SELECT COUNT(*) AS nb_emails FROM users WHERE email = :email";
         $requete_email = $db->prepare($sql_mail);
         $requete_email->bindValue(":email", $_POST["email"], PDO::PARAM_STR);
         $requete_email->execute();
 
-        $email_count = $requete_email->fetchColumn(); // Récupère le nombre d'emails trouvés
+        $email_count = $requete_email->fetchColumn(); // Récupère le nombre d'emails trouvés dans la colonne mail
 
         if ($email_count > 0) {
             die("Cette adresse eMail est déjà utilisée");
@@ -46,6 +46,7 @@ if (!empty($_POST)) {
                 die("Les mots de passe ne correspondent pas.");
             }
         }
+        //fin des vérifications
 
         //on écrit la requête sql d'inscription
         $sql = "INSERT INTO users(nom, prenom, email, pass, roles) VALUES (:nom, :prenom, :email, '$pass', 'user')";
