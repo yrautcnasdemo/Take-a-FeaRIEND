@@ -209,7 +209,7 @@ $animals = $query->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </footer>
 
-    <audio id="background-audio" src="./img/deal/HappyTreeFriends.mp3"></audio>
+    <!-- <audio id="background-audio" src="./img/deal/HappyTreeFriends.mp3"></audio> -->
 
 </body>
 <script src="./js/script.js"></script>
