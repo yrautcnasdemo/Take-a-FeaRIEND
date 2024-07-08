@@ -80,7 +80,7 @@ body {
 }
 .happy-box:hover {
   transition: 0.2s ease-in-out;
-  filter: drop-shadow(0 0 0.30rem rgb(27, 27, 27));
+  filter: drop-shadow(0 0 0.3rem rgb(27, 27, 27));
 }
 .stickernew {
   position: absolute;
@@ -140,7 +140,7 @@ body {
 .category-text {
   font-family: robotoMed;
   font-size: 24px;
-  transition: font-family 0.3s ease, transform 0.3s ease; 
+  transition: font-family 0.3s ease, transform 0.3s ease;
 }
 .category-link:hover .category-text {
   font-family: roadRage;
@@ -262,7 +262,7 @@ body {
   text-transform: uppercase;
   font-size: 28px;
 }
-.txt-deco{
+.txt-deco {
   text-decoration: none;
   color: white;
 }
@@ -301,7 +301,6 @@ body {
   width: 50%;
 }
 
-
 .discount-title {
   color: rgb(156, 0, 0);
   font-family: robotoBold;
@@ -322,7 +321,7 @@ body {
   background: linear-gradient(to bottom right, #ff1515, #252525);
   border: 0;
   border-radius: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: robotoMed;
@@ -333,7 +332,7 @@ body {
   padding: 0 1rem;
   text-align: center;
   text-decoration: none;
-  transition: box-shadow .2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -341,11 +340,15 @@ body {
 }
 
 .discount-buy:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 71, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 71, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 .discount-buy:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 71, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5),
+    -0.125rem -0.125rem 1rem rgba(239, 71, 71, 0.5),
+    0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
 .discount-produce {
@@ -362,49 +365,48 @@ body {
 
 /*DEAL OF THE DAY CARROUSEL*/
 
-
 /*//////////////////////////////////START DETAIL.CSS/////////////////////////////////////*/
 .detail-body {
   background-image: url(/img/tree.jpg);
   background-size: cover;
   backdrop-filter: blur(px);
 }
-.detail-card{
+.detail-card {
   margin-top: 120px;
   border: 4px solid rgb(8, 8, 8);
   border-radius: 10px;
 }
 
-.detail-name{
+.detail-name {
   color: rgb(194, 0, 0);
   font-family: roadRage;
   font-size: 80px;
   text-decoration: underline;
 }
-.detail-id{
+.detail-id {
   color: #ccc;
   font-family: robotoMed;
   text-align: start;
 }
-.detail-category{
+.detail-category {
   color: #ccc;
   font-family: robotoBold;
   font-size: 20px;
   text-align: start;
 }
-.detail-description{
+.detail-description {
   color: #ccc;
   font-family: robotoMed;
   font-size: 18px;
   text-align: start;
 }
-.detail-price{
+.detail-price {
   color: #ccc;
   font-family: robotoMed;
   font-size: 30px;
   text-align: start;
 }
-.btn-buy{
+.btn-buy {
   font-family: robotoBold;
   font-size: 20px;
 }
@@ -493,7 +495,7 @@ textarea {
   justify-content: center;
   align-items: center;
 }
-#previewImage{
+#previewImage {
   border-radius: 15px;
 }
 
@@ -656,7 +658,7 @@ textarea::placeholder {
 .category-soft {
   background-position: top 0px right 100px;
 }
-.category-intro{
+.category-intro {
   background-image: url(/img/Meg-Header-3.png);
   background-size: cover;
   background-position: center;
@@ -683,54 +685,51 @@ textarea::placeholder {
 }
 
 /*////////////////////////ABOUT /////////////////////////////*/
-.about-page{
+.about-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-
-
-.card-txt-about-title{
+.card-txt-about-title {
   color: rgb(236, 63, 0);
   font-family: roadRage;
   font-size: 30px;
   text-decoration: underline;
 }
-.card-txt-about{
+.card-txt-about {
   text-align: start;
   font-family: robotoMed;
   font-size: 18px;
 }
 
-
-.card-stat{
+.card-stat {
   display: flex;
   flex-direction: column;
 }
-.about-card-compil{
+.about-card-compil {
   display: flex;
   flex-direction: row;
   gap: 20px;
   flex-wrap: wrap;
 }
-.card-txt-about{
+.card-txt-about {
   display: flex;
   align-items: start;
   text-align: start;
 }
-.about-img-border{
+.about-img-border {
   border: 3px solid black;
   border-radius: 15px 15px 0 0;
 }
-.about-duo{
+.about-duo {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 40px;
 }
-.about-description{
+.about-description {
   padding: 30px;
   border-radius: 10px;
   border: 2px solid #e0a800;
@@ -748,7 +747,7 @@ textarea::placeholder {
   padding-top: 80px;
   color: rgb(151, 0, 0);
 }
-.about-text-title{
+.about-text-title {
   font-family: robotoBold;
   font-size: 26px;
   text-align: start;
@@ -775,7 +774,6 @@ textarea::placeholder {
   font-size: 18px;
 }
 
-
 /*//////////////////////////////////UPDATE/////////////////////////////////*/
 .update-box {
   font-family: robotoMed;
@@ -791,11 +789,11 @@ textarea::placeholder {
   display: flex;
   gap: 50px;
 }
-.update-title{
+.update-title {
   font-family: roadRage;
   font-size: 60px;
 }
-.update-name{
+.update-name {
   width: 200px;
 }
 .update-form {
@@ -807,20 +805,20 @@ textarea::placeholder {
   width: 350px;
   margin-top: 10px;
 }
-.uptade-row{
+.uptade-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
-.update-price-row{
+.update-price-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
   gap: 10px;
 }
-.update-price{
+.update-price {
   width: 100px;
 }
 .discount-update {
@@ -830,10 +828,6 @@ textarea::placeholder {
   width: 100px;
   margin-top: 15px;
 }
-
-
-
-
 
 /*INDEX RESPONSIVE*/
 @media all and (min-width: 768px) and (max-width: 1340px) {
@@ -902,7 +896,6 @@ textarea::placeholder {
   }
 }
 
-
 /*INDEX DEAL OF THE DAY*/
 @media all and (min-width: 1340px) and (max-width: 1700px) {
   .discount-pub {
@@ -927,11 +920,11 @@ textarea::placeholder {
     width: 50%;
     padding-left: 50px;
   }
-  
+
   .discount-title {
     font-size: 60px;
   }
-  
+
   .discount-price {
     font-family: robotoMed;
     color: white;
@@ -974,11 +967,11 @@ textarea::placeholder {
     padding-left: 0px;
     padding-top: 20px;
   }
-  
+
   .discount-title {
     font-size: 40px;
   }
-  
+
   .discount-price {
     font-family: robotoMed;
     color: white;
@@ -1000,10 +993,3 @@ textarea::placeholder {
     padding-right: 0px;
   }
 }
-
-
-
-
-
-
-
