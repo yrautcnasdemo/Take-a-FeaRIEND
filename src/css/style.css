@@ -26,6 +26,7 @@ body {
   align-items: center;
   width: 100%;
 }
+
 .main-nav {
   display: flex;
   flex-direction: row;
@@ -44,6 +45,7 @@ body {
 .header-btn {
   margin-right: 50px;
 }
+
 .btnlog {
   font-family: robotoMed;
   border: none;
@@ -56,10 +58,12 @@ body {
   height: 50px;
   cursor: pointer;
 }
+
 .btnloga {
   text-decoration: none;
   color: #ffffff;
 }
+
 .panierheader {
   border: 1px solid #e0a800;
   padding: 10px 20px;
@@ -73,6 +77,7 @@ body {
 .panier-link {
   font-size: 1rem;
 }
+
 /*END NavBAR*/
 /*START SECTION INTRO*/
 .intro {
@@ -81,6 +86,7 @@ body {
   background-position: top 0px right 0px;
   height: 1200px;
 }
+
 .happy-box {
   height: 172px;
   width: 300px;
@@ -90,10 +96,12 @@ body {
   top: 200px;
   left: 50px;
 }
+
 .happy-box:hover {
   transition: 0.2s ease-in-out;
-  filter: drop-shadow(0 0 0.3rem rgb(27, 27, 27));
+  filter: drop-shadow(0 0 0.31rem rgb(27, 27, 27));
 }
+
 .stickernew {
   position: absolute;
   top: 175px;
@@ -110,11 +118,13 @@ body {
   padding-top: 550px;
   padding-right: 180px;
 }
+
 .title {
   font-family: roadRage;
   color: white;
   font-size: 100px;
 }
+
 .text-content {
   padding-left: 15px;
   max-width: 450px;
@@ -123,10 +133,12 @@ body {
   font-size: 30px;
   color: white;
 }
+
 .sub-title {
   font-family: roadRage;
   font-size: 38px;
 }
+
 .text-content2 {
   font-family: robotoMed;
   text-align: start;
@@ -141,26 +153,31 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
 .little-box {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   transition: transform 0.3s ease, font-family 0.3s ease;
 }
+
 .category-link {
   text-decoration: none;
 }
+
 .category-text {
   font-family: robotoMed;
   font-size: 24px;
   transition: font-family 0.3s ease, transform 0.3s ease;
 }
+
 .category-link:hover .category-text {
   font-family: roadRage;
   font-size: 40px;
   transform: rotate(-5deg);
   color: rgb(255, 255, 255);
 }
+
 .category-link:hover .category-text {
   font-family: roadRage;
   font-size: 40px;
@@ -188,11 +205,13 @@ body {
   background-size: cover;
   background-position: top 0px right 0px;
 }
+
 .category-2 {
   background-image: url(/img/securites/105547.png);
   background-size: cover;
   background-position: top -110px right 0px;
 }
+
 .category-3 {
   background-image: url(/img/dangereux/105856.png);
   background-size: cover;
@@ -207,12 +226,14 @@ body {
   align-items: center;
   font-family: robotoMed;
 }
+
 .produces-title {
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 10px solid black;
 }
+
 .produces-cards {
   border-top: 2px solid rgb(224, 224, 224);
   display: flex;
@@ -229,6 +250,7 @@ body {
   gap: 40px;
   margin-top: 70px;
 }
+
 .card-produce {
   position: relative;
   height: 500px;
@@ -236,6 +258,7 @@ body {
   overflow: hidden;
   cursor: pointer;
 }
+
 .intro-produce {
   position: absolute;
   height: 80px;
@@ -247,18 +270,22 @@ body {
   background-color: rgba(27, 27, 27, 0.5);
   transition: 0.4s ease-in-out;
 }
+
 .card-produce:hover .intro-produce {
   height: 280px;
   bottom: 0;
   background-color: #000;
 }
+
 .card-produce:hover .text-p {
   opacity: 1;
   visibility: visible;
 }
+
 .card-produce:hover img {
   transform: scale(1.1) rotate(-3deg);
 }
+
 .img-produce {
   height: 500px;
   width: 350px;
@@ -266,6 +293,7 @@ body {
   border-radius: 4px;
   transition: transform 0.4s ease-in-out;
 }
+
 .text-h4 {
   text-align: center;
   font-family: roadRage;
@@ -273,14 +301,17 @@ body {
   text-transform: uppercase;
   font-size: 28px;
 }
+
 .txt-deco {
   text-decoration: none;
   color: white;
 }
+
 .txt-limit {
   height: 145px;
   overflow-y: scroll;
 }
+
 .text-p {
   font-size: 16px;
   padding: 10px;
@@ -306,6 +337,7 @@ body {
   border: 2px solid rgb(37, 37, 37);
   filter: drop-shadow(0 0 0.75rem rgba(8, 8, 8, 0.479));
 }
+
 .discount-pub {
   display: flex;
   flex-direction: column;
@@ -326,6 +358,7 @@ body {
   color: white;
   font-size: 50px;
 }
+
 .discount-btn {
   margin-top: 50px;
 }
@@ -385,6 +418,7 @@ body {
   background-size: cover;
   backdrop-filter: blur(px);
 }
+
 .detail-card {
   margin-top: 120px;
   border: 4px solid rgb(8, 8, 8);
@@ -397,29 +431,34 @@ body {
   font-size: 80px;
   text-decoration: underline;
 }
+
 .detail-id {
   color: #ccc;
   font-family: robotoMed;
   text-align: start;
 }
+
 .detail-category {
   color: #ccc;
   font-family: robotoBold;
   font-size: 20px;
   text-align: start;
 }
+
 .detail-description {
   color: #ccc;
   font-family: robotoMed;
   font-size: 18px;
   text-align: start;
 }
+
 .detail-price {
   color: #ccc;
   font-family: robotoMed;
   font-size: 30px;
   text-align: start;
 }
+
 .btn-buy {
   font-family: robotoBold;
   font-size: 20px;
@@ -509,6 +548,7 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
 #previewImage {
   border-radius: 15px;
 }
@@ -612,14 +652,17 @@ textarea::placeholder {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .font-take {
   font-family: roadRage;
   color: white;
   font-size: 100px;
 }
+
 .sub-box {
   width: 300px;
 }
+
 .img-box {
   background-image: url(/img/login.png);
   background-position: center;
@@ -635,49 +678,62 @@ textarea::placeholder {
   background-color: #212529;
   margin-top: 50px;
 }
+
 .footer-style {
   background-color: #212529;
   color: #fff;
 }
+
 .footer-style a {
   color: #fff;
 }
+
 .footer-style .title-footer {
   text-decoration: underline;
   font-family: robotoBold;
   color: #ff9b06;
 }
+
 .footer-style .border-top {
   border-top: 1px solid #444;
 }
+
 .footer-content {
   text-align: center;
   font-family: robotoMed;
 }
+
 .TaF-footer {
   color: rgb(255, 255, 255);
   font-family: roadRage;
   font-size: 40px;
 }
+
 .footer-link a:hover {
-  color: white; /* Couleur du texte au survol */
-  text-decoration: none; /* Supprimer le soulignement au survol */
+  color: white;
+  /* Couleur du texte au survol */
+  text-decoration: none;
+  /* Supprimer le soulignement au survol */
 }
+
 /*END FOOTER*/
 
 /* //////////////////////////////// CATEGORY CSS*/
 .category-body {
   background-color: #1e1e1e;
 }
+
 .category-soft {
   background-position: top 0px right 100px;
 }
+
 .category-intro {
   background-image: url(/img/Meg-Header-3.png);
   background-size: cover;
   background-position: center;
   height: 800px;
 }
+
 .container-category {
   display: flex;
   justify-content: center;
@@ -685,6 +741,7 @@ textarea::placeholder {
   gap: 40px;
   margin-top: -200px;
 }
+
 .category-title {
   font-family: roadRage;
   font-size: 100px;
@@ -712,6 +769,7 @@ textarea::placeholder {
   font-size: 30px;
   text-decoration: underline;
 }
+
 .card-txt-about {
   text-align: start;
   font-family: robotoMed;
@@ -722,27 +780,32 @@ textarea::placeholder {
   display: flex;
   flex-direction: column;
 }
+
 .about-card-compil {
   display: flex;
   flex-direction: row;
   gap: 20px;
   flex-wrap: wrap;
 }
+
 .card-txt-about {
   display: flex;
   align-items: start;
   text-align: start;
 }
+
 .about-img-border {
   border: 3px solid black;
   border-radius: 15px 15px 0 0;
 }
+
 .about-duo {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 40px;
 }
+
 .about-description {
   padding: 30px;
   border-radius: 10px;
@@ -754,6 +817,7 @@ textarea::placeholder {
   margin-top: -40px;
   width: 40%;
 }
+
 .about-main-title {
   font-family: roadRage;
   font-size: 100px;
@@ -761,27 +825,32 @@ textarea::placeholder {
   padding-top: 80px;
   color: rgb(151, 0, 0);
 }
+
 .about-text-title {
   font-family: robotoBold;
   font-size: 26px;
   text-align: start;
 }
+
 .about-title {
   font-family: roadRage;
   font-size: 80px;
   color: rgb(151, 0, 0);
 }
+
 .about-stat-size {
   display: flex;
   flex-direction: row;
   width: 200px;
 }
+
 .about-stat {
   color: orangered;
   font-family: roadRage;
   font-size: 30px;
   text-decoration: underline;
 }
+
 .about-text {
   text-align: start;
   font-family: robotoMed;
@@ -799,32 +868,39 @@ textarea::placeholder {
   border-radius: 20px;
   border: 2px solid white;
 }
+
 .update-form-card {
   display: flex;
   gap: 50px;
 }
+
 .update-title {
   font-family: roadRage;
   font-size: 60px;
 }
+
 .update-name {
   width: 200px;
 }
+
 .update-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .update-form-right {
   width: 350px;
   margin-top: 10px;
 }
+
 .uptade-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 10px;
 }
+
 .update-price-row {
   display: flex;
   flex-direction: row;
@@ -832,12 +908,15 @@ textarea::placeholder {
   margin-top: 20px;
   gap: 10px;
 }
+
 .update-price {
   width: 100px;
 }
+
 .discount-update {
   margin-top: 20px;
 }
+
 .update-btn {
   width: 100px;
   margin-top: 15px;
@@ -848,6 +927,7 @@ textarea::placeholder {
   .intro {
     background-position: top 0px right 0px;
   }
+
   .text-intro {
     display: flex;
     flex-direction: column;
@@ -857,24 +937,29 @@ textarea::placeholder {
     padding-right: 0px;
     padding-top: 650px;
   }
+
   .category-1 {
     background-image: url(/img/domestiques/chaton.png);
     background-size: cover;
     background-position: top 0px right 0px;
   }
+
   .category-2 {
     background-image: url(/img/securites/105547.png);
     background-size: center;
   }
+
   .category-3 {
     background-image: url(/img/dangereux/105856.png);
     background-size: center;
   }
 }
+
 @media all and (min-width: 330px) and (max-width: 768px) {
   .intro {
     background-position: top 0px left 770px;
   }
+
   .text-intro {
     display: flex;
     flex-direction: column;
@@ -884,10 +969,12 @@ textarea::placeholder {
     padding-right: 0px;
     padding-top: 650px;
   }
+
   .text-content {
     text-align: center;
     max-width: 100%;
   }
+
   .text-content2 {
     text-align: center;
     display: none;
@@ -898,14 +985,17 @@ textarea::placeholder {
     background-size: cover;
     background-position: top 0px right 0px;
   }
+
   .category-2 {
     background-image: url(/img/securites/105547.png);
     background-size: center;
   }
+
   .category-3 {
     background-image: url(/img/dangereux/105856.png);
     background-size: center;
   }
+
   .category-text {
     position: relative;
     bottom: 75px;
@@ -918,6 +1008,7 @@ textarea::placeholder {
     padding-left: 50px;
   }
 }
+
 @media all and (min-width: 768px) and (max-width: 1340px) {
   .discount {
     flex-direction: row;
@@ -927,6 +1018,7 @@ textarea::placeholder {
     margin-left: 0;
     margin-right: 0;
   }
+
   .discount-pub {
     display: flex;
     flex-direction: column;
@@ -946,9 +1038,11 @@ textarea::placeholder {
     color: white;
     font-size: 50px;
   }
+
   .discount-btn {
     margin-top: 50px;
   }
+
   .discount-produce {
     display: flex;
     justify-content: center;
@@ -973,6 +1067,7 @@ textarea::placeholder {
     margin-left: 0;
     margin-right: 0;
   }
+
   .discount-pub {
     display: flex;
     flex-direction: column;
@@ -993,9 +1088,11 @@ textarea::placeholder {
     color: white;
     font-size: 30px;
   }
+
   .discount-btn {
     margin-top: 20px;
   }
+
   .discount-produce {
     display: flex;
     justify-content: center;
