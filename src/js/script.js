@@ -125,25 +125,30 @@ document.getElementById("image").addEventListener("change", function () {
   reader.readAsDataURL(this.files[0]);
 });
 
-
-paypal.Buttons({
-  createOrder: function(data, actions) {
+paypal
+  .Buttons({
+    createOrder: function (data, actions) {
       return actions.order.create({
-          purchase_units: [{
-              amount: {
-                  value: '0.01' // Le montant à payer
-              }
-          }]
+        purchase_units: [
+          {
+            amount: {
+              value: "0.01", // Le montant à payer
+            },
+          },
+        ],
       });
-  },
-  onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-          alert('Transaction completed by ' + details.payer.name.given_name);
-          // Ici, vous pouvez rediriger l'utilisateur ou enregistrer les détails de la transaction
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        alert("Transaction completed by " + details.payer.name.given_name);
+        // Ici, vous pouvez rediriger l'utilisateur ou enregistrer les détails de la transaction
       });
-  },
-  onError: function(err) {
-      console.error('An error occurred during the transaction', err);
-      alert('Une erreur s\'est produite lors de la transaction. Veuillez réessayer.');
-  }
-}).render('#paypal-button-container');
+    },
+    onError: function (err) {
+      console.error("An error occurred during the transaction", err);
+      alert(
+        "Une erreur s'est produite lors de la transaction. Veuillez réessayer."
+      );
+    },
+  })
+  .render("#paypal-button-container");

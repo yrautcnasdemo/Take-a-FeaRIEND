@@ -29,10 +29,10 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
     <section class="intro">
         <?php require_once("./template/header.php"); ?>
         <div>
-            <a href="/happyfriends.php"><img class="happy-box" src="/img/happytreefriends/happytreefriends.png" alt=""></a>
+            <a href="happyfriends.php"><img class="happy-box" src="/img/happytreefriends/happytreefriends.png" alt=""></a>
         </div>
         <div>
-            <a href="/happyfriends.php"><img class="stickernew" src="/img/icons/stickerNew.png" alt="stickernew"></a>
+            <a href="happyfriends.php"><img class="stickernew" src="/img/icons/stickerNew.png" alt="stickernew"></a>
         </div>
 
         <article class="text-intro">

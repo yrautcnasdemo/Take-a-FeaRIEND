@@ -5,16 +5,16 @@
     <nav id="nav">
         <ul>
             <div class="container-li">
-                <li><a href="../index.php">Accueil</a></li>
-                <li><a href="../category.php">Catégories</a></li>
-                <li><a href="../about.php">A propos</a></li>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="category.php">Catégories</a></li>
+                <li><a href="about.php">A propos</a></li>
             </div>
             <div class="container-button-li">
                 <?php if (empty($_SESSION['user'])) { ?>
                     <div class="container-button-li">
                         <button type="button" class="Login"><a class="login-link" href="ConnexionUser.php">Login</a></button>
                     </div>
-                <?php } else {
+                    <?php } else {
                     if (isset($_SESSION['user']['roles']) && ($_SESSION['user']['roles'] == 'administrateur')) { ?>
                         <div class="container-button-li">
                             <button type="button" class="panierheader"><a class="admin-link" href="backoffice.php">Admin</a></button>
