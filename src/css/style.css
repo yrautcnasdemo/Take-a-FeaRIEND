@@ -81,7 +81,7 @@ body {
 /*END NavBAR*/
 /*START SECTION INTRO*/
 .intro {
-  background-image: url(/img/Godzilla.png);
+  background-image: url(../img/Godzilla.png);
   background-size: cover;
   background-position: top 0px right 0px;
   height: 1200px;
@@ -201,19 +201,19 @@ body {
 }
 
 .category-1 {
-  background-image: url(/img/domestiques/chaton.png);
+  background-image: url(../img/domestiques/chaton.png);
   background-size: cover;
   background-position: top 0px right 0px;
 }
 
 .category-2 {
-  background-image: url(/img/securites/105547.png);
+  background-image: url(../img/securites/105547.png);
   background-size: cover;
   background-position: top -110px right 0px;
 }
 
 .category-3 {
-  background-image: url(/img/dangereux/105856.png);
+  background-image: url(../img/dangereux/105856.png);
   background-size: cover;
   background-position: top -180px right 0px;
 }
@@ -328,7 +328,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-image: url(/img/The-Meg-2-15.jpg);
+  background-image: url(../img/The-Meg-2-15.jpg);
   border-radius: 20px;
   background-size: cover;
   width: 70%;
@@ -414,7 +414,7 @@ body {
 
 /*//////////////////////////////////START DETAIL.CSS/////////////////////////////////////*/
 .detail-body {
-  background-image: url(/img/tree.jpg);
+  background-image: url(../img/tree.jpg);
   background-size: cover;
   backdrop-filter: blur(px);
 }
@@ -582,7 +582,7 @@ textarea {
 }
 
 .bannerOffice {
-  background-image: url(/img/panel-admin.png);
+  background-image: url(../img/panel-admin.png);
   background-position: top -45px right 0px;
   height: 380px;
 }
@@ -648,7 +648,7 @@ textarea::placeholder {
   padding: auto;
   background-color: rgb(22, 22, 22);
   height: 100vh;
-  background-image: url(/img/loginReso2k.jpg);
+  background-image: url(../img/loginReso2k.jpg);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -664,7 +664,7 @@ textarea::placeholder {
 }
 
 .img-box {
-  background-image: url(/img/login.png);
+  background-image: url(../img/login.png);
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
@@ -728,7 +728,7 @@ textarea::placeholder {
 }
 
 .category-intro {
-  background-image: url(/img/Meg-Header-3.png);
+  background-image: url(../img/Meg-Header-3.png);
   background-size: cover;
   background-position: center;
   height: 800px;
@@ -939,18 +939,18 @@ textarea::placeholder {
   }
 
   .category-1 {
-    background-image: url(/img/domestiques/chaton.png);
+    background-image: url(../img/domestiques/chaton.png);
     background-size: cover;
     background-position: top 0px right 0px;
   }
 
   .category-2 {
-    background-image: url(/img/securites/105547.png);
+    background-image: url(../img/securites/105547.png);
     background-size: center;
   }
 
   .category-3 {
-    background-image: url(/img/dangereux/105856.png);
+    background-image: url(../img/dangereux/105856.png);
     background-size: center;
   }
 }
@@ -981,18 +981,18 @@ textarea::placeholder {
   }
 
   .category-1 {
-    background-image: url(/img/domestiques/chaton.png);
+    background-image: url(../img/domestiques/chaton.png);
     background-size: cover;
     background-position: top 0px right 0px;
   }
 
   .category-2 {
-    background-image: url(/img/securites/105547.png);
+    background-image: url(../img/securites/105547.png);
     background-size: center;
   }
 
   .category-3 {
-    background-image: url(/img/dangereux/105856.png);
+    background-image: url(../img/dangereux/105856.png);
     background-size: center;
   }
 
