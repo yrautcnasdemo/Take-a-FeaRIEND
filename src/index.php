@@ -29,10 +29,10 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
     <section class="intro">
         <?php require_once("./template/header.php"); ?>
         <div>
-            <a href="happyfriends.php"><img class="happy-box" src="/img/happytreefriends/happytreefriends.png" alt=""></a>
+            <a href="happyfriends.php"><img class="happy-box" src="./img/happytreefriends/happytreefriends.png" alt=""></a>
         </div>
         <div>
-            <a href="happyfriends.php"><img class="stickernew" src="/img/icons/stickerNew.png" alt="stickernew"></a>
+            <a href="happyfriends.php"><img class="stickernew" src="./img/icons/stickerNew.png" alt="stickernew"></a>
         </div>
 
         <article class="text-intro">
@@ -129,7 +129,7 @@ $animals = $requete->fetchAll(PDO::FETCH_ASSOC);
                 <?php if ($animal['id'] == 35) : ?>
                     <div class="card-produce">
                         <video width="350" height="560" controls>
-                            <source src="/img/deal/Meg.mp4" type="video/mp4">
+                            <source src="./img/deal/Meg.mp4" type="video/mp4">
                         </video>
                         <div class="intro-produce">
                             <a href="detail.php?id=<?= htmlspecialchars($animal['id']); ?>" class="txt-deco">
