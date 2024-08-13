@@ -19,7 +19,7 @@ if (isset($_POST['loginUser'])) {
 
         if ($user) {
             // On utilise une seule session pour stocker l'utilisateur
-            $_SESSION['user'] = [
+            $_SESSION['user_monster'] = [
                 'email' => $user['email'],
                 'id' => $user['id'],
                 "nom" => $user['nom'],
