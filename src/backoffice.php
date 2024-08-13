@@ -149,7 +149,7 @@ if ($_POST && isset($_POST["name"]) && isset($_POST["content"]) && isset($_POST[
         </div>
         <div class="Admin-title">
             <h2>Bienvenue Administrateur</h2>
-            <span><?= $_SESSION['user']['prenom']; ?></span>
+            <span><?= $_SESSION['user_monster']['prenom']; ?></span>
         </div>
     </section>
     <section>
