@@ -5,9 +5,9 @@ require_once("./template/header.php");
 require_once("./template/tools.php");
 
 if (isset($_POST['ajouter_panier'])) {
-    if (isset($_POST["animal_id"]) && isset($_SESSION["user"]["id"])) {
+    if (isset($_POST["animal_id"]) && isset($_SESSION["user_monster"]["id"])) {
         $animal_id = strip_tags($_POST["animal_id"]);
-        $user_id = $_SESSION["user"]["id"];
+        $user_id = $_SESSION["user_monster"]["id"];
 
         $sql = "SELECT * FROM panier WHERE user_id = :user_id AND animal_id = :animal_id ";
         $query = $db->prepare($sql);
@@ -102,7 +102,7 @@ if ($animal['images'] === '') {
                         <p class="detail-description">Description: </p>
                         <p class="detail-description"><?= $animal['content'] ?></p>
                         <p class="detail-price">Prix: <?= $animal['price'] ?>€</p>
-                        <?php if (isset($_SESSION['user']['email']) && ($_SESSION['user']['email'] == 'Yrautcnas@msn.com' || $_SESSION['user']['email'] == 'a@b.c')) { ?>
+                        <?php if (isset($_SESSION['user_monster']['email']) && ($_SESSION['user_monster']['email'] == 'Yrautcnas@msn.com' || $_SESSION['user_monster']['email'] == 'a@b.c')) { ?>
                             <button type="button" class="btn btn-outline-warning btn-buy"><a class="admin-link" href="backoffice.php">Modifier</a></button>
                         <?php } else { ?>
                             <form action="" method="post">
