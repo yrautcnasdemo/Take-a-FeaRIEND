@@ -4,8 +4,8 @@ session_start();
 
 require_once("connect.php");
 
-if (isset($_SESSION['user']['id'])) {
-    $user_id = $_SESSION['user']['id'];
+if (isset($_SESSION['user_monster']['id'])) {
+    $user_id = $_SESSION['user_monster']['id'];
 
     // Requête pour récupérer les articles dans le panier de l'utilisateur
     $sql = "SELECT p.*
@@ -82,7 +82,7 @@ if (isset($_SESSION['user']['id'])) {
         <?php require_once("./template/header.php") ?>
         <section class="image-illus"></section>
         <section class="produits">
-            <h2>Panier de <?= $_SESSION['user']["nom"] . " " . $_SESSION['user']["prenom"]; ?></h2>
+            <h2>Panier de <?= $_SESSION['user_monster']["nom"] . " " . $_SESSION['user_monster']["prenom"]; ?></h2>
             <div class="container-articles">
                 <?php
                 // Boucle foreach pour afficher le panier
