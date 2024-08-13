@@ -5,9 +5,9 @@ session_start();
 require_once("connect.php");
 
 if (isset($_POST['ajouter_panier'])) {
-    if (isset($_POST["animal_id"]) && isset($_SESSION["user"]["id"])) {
+    if (isset($_POST["animal_id"]) && isset($_SESSION["user_monster"]["id"])) {
         $animal_id = strip_tags($_POST["animal_id"]);
-        $user_id = $_SESSION["user"]["id"];
+        $user_id = $_SESSION["user_monster"]["id"];
 
         $sql = "SELECT * FROM panier WHERE user_id = :user_id AND animal_id = :animal_id ";
         $query = $db->prepare($sql);
